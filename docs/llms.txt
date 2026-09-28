@@ -1,0 +1,13 @@
+# All Factored · แยกหมดแล้ว
+
+> Post-quantum cryptography, drawn with math, in English and Thai. One page, six live drawings.
+
+- Multiply, then go back: dots snap into a p×q rectangle; undoing it means trying widths.
+- The rhythm trick: a^x mod N bars and their spectrum; the period r gives gcd(a^(r/2)±1, N).
+- Curves fall too: hops on y² = x³ + 7 over the integers mod 97 (secp256k1's equation).
+- The new locks: a 2-D lattice, good basis vs bad basis, Babai rounding.
+- Harvest now, open later: Mosca's x + y > z.
+- Our sites, checked 28 Sep 2026: key exchange X25519MLKEM768 on motdang.net, hongdam.net, wichaa.net, nanobotco.github.io; certificates ECDSA/RSA.
+
+Cites: Shor 1994; Gidney 2025; NIST FIPS 203/204/205; NCSC PQC timelines; Mosca 2018; ChainsAtlas whitepaper; Red Team Partners partner programme.
+Text CC BY 4.0, code MIT. https://github.com/NaNoBotCo/all-factored
