@@ -1,322 +1,267 @@
 <!doctype html>
-<html lang="en" data-lang="both" translate="no" class="notranslate">
+<html lang="th" data-lang="th" translate="no" class="notranslate">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="google" content="notranslate">
 <title>All Factored</title>
-<meta name="description" content="Post-quantum, drawn with math, in English and Thai: why multiplying primes is easy and undoing it is hard, how a quantum computer hears the answer, the curves that fall with it, the lattice locks that replace them, and which of our sites are already switched.">
+<meta name="description" content="Why the locks on the internet are changing, as pictures you can touch: mixing paint, seating guests, a mail slot, a flashlight and a floodlight, a freezer, a dining room, and our own shopfront. Thai and English.">
 <link rel="canonical" href="https://nanobotco.github.io/all-factored/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="NaNoBotCo">
 <meta property="og:title" content="All Factored · แยกหมดแล้ว">
-<meta property="og:description" content="Post-quantum, drawn with math, in English and Thai.">
+<meta property="og:description" content="ทำไมกุญแจบนอินเทอร์เน็ตกำลังเปลี่ยน เป็นภาพที่แตะเล่นได้ · Why the internet's locks are changing, as pictures you can touch.">
 <meta property="og:url" content="https://nanobotco.github.io/all-factored/">
 <meta property="og:image" content="https://nanobotco.github.io/all-factored/card.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="A spiral of numbers with the primes lit gold and the semiprimes split apart, and the words All Factored in English and Thai.">
-<meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="th_TH">
+<meta property="og:image:alt" content="Paint pots, tables of guests and a padlock, with the words All Factored in English and Thai.">
+<meta property="og:locale" content="th_TH"><meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://nanobotco.github.io/all-factored/card.jpg">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="alternate" type="text/plain" href="https://nanobotco.github.io/all-factored/llms.txt" title="llms.txt">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Sarabun:ital,wght@0,400;0,600;1,400&family=Mitr:wght@400;500&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Sarabun:wght@400;600&family=Mitr:wght@400;500&display=swap">
 <style>
 :root{
-  --ground:#e9edf1; --panel:#f7f9fb; --ink:#17212c; --muted:#56636f; --rule:#c9d1d9;
-  --brass:#a8701a; --teal:#1f7f74; --red:#c23b50; --green:#2f8a4a; --faint:#b9c3cc;
-  --display:"Zilla Slab",Georgia,serif; --thai-display:"Mitr","Sarabun",Tahoma,sans-serif;
-  --body:"Sarabun",Tahoma,system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --ground:#f1efe9; --panel:#ffffff; --ink:#1f2328; --muted:#5e6570; --rule:#ddd8cc;
+  --gold:#c98a12; --teal:#1f8a7e; --red:#d0453d; --green:#2e8b4e; --blue:#2f6fcf; --plum:#8a4fbf; --table:#d8c29a; --shade:#1c232b;
+  --display:"Baloo 2","Mitr",system-ui,sans-serif; --thai-display:"Mitr","Sarabun",Tahoma,sans-serif;
+  --body:"Sarabun",Tahoma,system-ui,sans-serif;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --ground:#0f141a; --panel:#161d25; --ink:#e4e9ee; --muted:#9aa7b3; --rule:#2a3541;
-  --brass:#e0a445; --teal:#4cc2b3; --red:#ef6b7e; --green:#5fc27a; --faint:#33404c; color-scheme:dark;}}
+  --ground:#14181d; --panel:#1c2229; --ink:#eceff2; --muted:#a3adb8; --rule:#2e3742;
+  --gold:#e8a93a; --teal:#4cc2b3; --red:#ef6b61; --green:#5fc27a; --blue:#6aa0f0; --plum:#b98ae6; --table:#5b4c32; --shade:#0b0e12; color-scheme:dark;}}
 :root[data-theme="dark"]{
-  --ground:#0f141a; --panel:#161d25; --ink:#e4e9ee; --muted:#9aa7b3; --rule:#2a3541;
-  --brass:#e0a445; --teal:#4cc2b3; --red:#ef6b7e; --green:#5fc27a; --faint:#33404c; color-scheme:dark;}
+  --ground:#14181d; --panel:#1c2229; --ink:#eceff2; --muted:#a3adb8; --rule:#2e3742;
+  --gold:#e8a93a; --teal:#4cc2b3; --red:#ef6b61; --green:#5fc27a; --blue:#6aa0f0; --plum:#b98ae6; --table:#5b4c32; --shade:#0b0e12; color-scheme:dark;}
 *{box-sizing:border-box}
 html,body{background:var(--ground);color:var(--ink)}
-body{margin:0;font:17px/1.62 var(--body);padding-inline:16px;padding-block:0 64px}
+body{margin:0;font:21px/1.7 var(--body);padding-inline:16px;padding-block:0 72px}
 .wrap{max-width:720px;margin:0 auto}
-.wide{max-width:960px;margin:0 auto}
-a{color:var(--teal)} a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
-header.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ground);border-bottom:1px solid var(--rule);margin-inline:-16px;padding:8px 16px}
-.bar .in{max-width:960px;margin:0 auto;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-.bar .brand{font-family:var(--display);font-weight:700;letter-spacing:.02em;margin-right:auto}
-.bar nav{display:flex;gap:10px;flex-wrap:wrap;font-size:14px}
-.bar nav a{color:var(--muted);text-decoration:none} .bar nav a:hover{color:var(--ink)}
-.lang{display:flex;border:1px solid var(--rule);border-radius:999px;overflow:hidden}
-.lang button{font:600 13px var(--body);background:none;border:0;color:var(--muted);padding:4px 10px;cursor:pointer}
-.lang button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
-/* languages */
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 [data-lang="en"] .th{display:none!important}
 [data-lang="th"] .en{display:none!important}
-[data-lang="both"] p.th,[data-lang="both"] li .th,[data-lang="both"] .says .th{color:var(--muted);font-size:.94em}
-[data-lang="both"] h1 .th,[data-lang="both"] h2 .th{display:block;font-size:.62em;color:var(--muted);margin-top:.15em}
-[data-lang="both"] .i.th::before{content:" · "}
-[data-lang="th"] body,[data-lang="th"] p{line-height:1.75}
-h1,h2{font-family:var(--display);font-weight:700;line-height:1.08;text-wrap:balance;margin:0}
-h1 .th,h2 .th{font-family:var(--thai-display);font-weight:500}
-h1{font-size:clamp(46px,9vw,88px);letter-spacing:-.01em}
-h2{font-size:clamp(28px,4.6vw,40px);margin-top:8px}
-.eyebrow{font:600 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
-.eyebrow .th{letter-spacing:0;text-transform:none}
-section{padding-block:56px 8px;border-top:1px solid var(--rule)}
-section:first-of-type{border-top:0}
-p{margin:.7em 0}
-.hero{padding-block:28px 12px;position:relative}
-.hero canvas{display:block;width:100%;height:min(62vw,440px);max-width:100%}
-.hero .words{max-width:720px;margin:14px auto 0}
-.lede{font-size:19px}
-.stage{background:var(--panel);border:1px solid var(--rule);border-radius:6px;margin:20px auto 8px;overflow:hidden}
-.stage canvas{display:block;width:100%;max-width:100%;touch-action:manipulation}
-.ctl{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;padding:12px 14px;border-top:1px solid var(--rule);font-size:15px}
-.ctl label{display:flex;gap:8px;align-items:center}
-.ctl input[type=range]{width:150px;accent-color:var(--brass)}
-select,button.go{font:600 15px var(--body);color:var(--ink);background:var(--ground);border:1px solid var(--rule);border-radius:4px;padding:5px 10px;cursor:pointer}
-button.go.primary{background:var(--brass);border-color:var(--brass);color:#fff}
-.read{font:14px/1.5 var(--mono);color:var(--ink);padding:10px 14px;border-top:1px dashed var(--rule);min-height:3.2em;white-space:pre-wrap;overflow-x:auto}
-.read b{color:var(--brass);font-weight:600}
-.says{display:grid;grid-template-columns:3.4em 1fr;gap:4px 12px;margin:18px 0;font-size:17px}
-.says .who{font:700 13px/1.9 var(--mono);color:var(--teal);text-align:right}
-.says .who.b{color:var(--brass)}
-.says .line{font-style:italic}
-.big{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
-.big div{border-left:3px solid var(--brass);padding:2px 0 2px 12px}
-.big b{display:block;font:600 26px/1.1 var(--mono);font-variant-numeric:tabular-nums}
-.big span{font-size:14px;color:var(--muted)}
-.tbl{overflow-x:auto;margin:18px 0}
-table{border-collapse:collapse;width:100%;font-size:15px;min-width:520px}
-th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
-th{font:600 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-td code{font:13px var(--mono)}
+header.bar{display:flex;align-items:center;gap:12px;max-width:720px;margin:0 auto;padding-block:14px}
+.brand{font:800 20px var(--display);margin-right:auto}
+.lang{display:flex;border:2px solid var(--ink);border-radius:999px;overflow:hidden}
+.lang button{font:600 18px var(--body);background:none;border:0;color:var(--ink);padding:6px 18px;cursor:pointer;min-height:44px}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
+h1,h2{margin:0;line-height:1.15;text-wrap:balance;font-weight:800;font-family:var(--display)}
+[data-lang="th"] h1,[data-lang="th"] h2{font-family:var(--thai-display);font-weight:500}
+h1{font-size:clamp(44px,10vw,76px)}
+h2{font-size:clamp(30px,6vw,42px);display:flex;gap:14px;align-items:center}
+h2 svg{flex:none;width:52px;height:52px}
+.pen{background:var(--panel);border:2px solid var(--rule);border-radius:18px;padding:22px 22px 18px;margin:28px 0}
+.pen p{margin:.55em 0}
+.lede{font-size:24px}
+.toy{margin:16px -8px 4px;border-radius:12px;background:var(--ground);overflow:hidden}
+.toy canvas{display:block;width:100%;max-width:100%;touch-action:manipulation}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:12px 0}
+button.go{font:600 19px var(--body);color:var(--ink);background:var(--ground);border:2px solid var(--ink);border-radius:999px;padding:8px 18px;cursor:pointer;min-height:48px}
+button.go.on,button.go.primary{background:var(--ink);color:var(--ground)}
+.say{font-size:22px;font-weight:600;margin-top:12px;min-height:1.7em}
+.say b{color:var(--gold)}
+.pots{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0}
+.pot{width:64px;height:64px;border-radius:50% 50% 14px 14px;border:3px solid var(--ink);cursor:pointer;font:800 22px var(--display);color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+.pot[aria-pressed="true"]{transform:translateY(-6px);box-shadow:0 6px 0 var(--ink)}
+.mixrow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font:800 30px var(--display)}
+.blob{width:96px;height:96px;border-radius:46% 54% 50% 50%;border:3px solid var(--ink);display:grid;place-items:center;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6);font:800 26px var(--display)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:10px;margin-top:12px}
+.grid button{aspect-ratio:1;border-radius:50%;border:3px solid transparent;cursor:pointer;font:600 16px var(--body);color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.6)}
+.grid button.hit{border-color:var(--ink)}
+.slotbox{display:block;width:100%;max-width:420px;margin:8px auto}
+.letter{transition:transform .9s ease-in}
+.letter.in{transform:translateY(110px)}
+.lid{transition:transform .5s}
+.lid.open{transform:translateY(-62px) rotate(-6deg)}
+.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.shop{display:block;width:100%;max-width:560px;margin:8px auto;cursor:pointer}
+.shop .hot{cursor:pointer}
+table{border-collapse:collapse;width:100%;font-size:19px;margin-top:10px}
+td{padding:8px 6px;border-bottom:1px solid var(--rule)}
 .ok{color:var(--green);font-weight:600} .no{color:var(--red);font-weight:600}
-dl.words{display:grid;grid-template-columns:minmax(120px,max-content) 1fr;gap:8px 18px;margin:18px 0}
-dl.words dt{font-weight:600} dl.words dd{margin:0;color:var(--muted)}
-ol.src{font-size:15px;padding-left:1.3em} ol.src li{margin:.35em 0}
-footer{border-top:1px solid var(--rule);margin-top:48px;padding-top:18px;font-size:14px;color:var(--muted)}
-.formula{font:15px var(--mono);background:var(--panel);border:1px solid var(--rule);border-radius:4px;padding:10px 14px;overflow-x:auto;white-space:nowrap}
-@media (max-width:640px){ .bar nav{display:none} header.bar{position:static} }
-@media (max-width:520px){ body{font-size:16px} .says{grid-template-columns:2.8em 1fr} .ctl input[type=range]{width:120px} }
+.range{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;margin:8px 0}
+.range input{width:100%;accent-color:var(--gold);height:32px}
+.range output{font:800 24px var(--display);min-width:2.2em;text-align:right}
+ul.words{list-style:none;padding:0;margin:0} ul.words li{padding:8px 0;border-bottom:1px solid var(--rule)}
+ul.words b{margin-right:10px}
+ol.src{font-size:16px;line-height:1.55;padding-left:1.3em} ol.src li{margin:.4em 0}
+footer{max-width:720px;margin:40px auto 0;font-size:16px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.letter,.lid{transition:none}.shake{animation:none}}
+@media (max-width:520px){body{font-size:20px}.pen{padding:18px 16px 14px}h2 svg{width:42px;height:42px}}
 </style>
 </head>
 <body>
-<header class="bar"><div class="in">
+<header class="bar">
   <span class="brand">All Factored</span>
-  <nav aria-label="Sections">
-    <a href="#multiply"><span class="en">Multiply</span><span class="th i">คูณ</span></a>
-    <a href="#rhythm"><span class="en">Rhythm</span><span class="th i">จังหวะ</span></a>
-    <a href="#curves"><span class="en">Curves</span><span class="th i">เส้นโค้ง</span></a>
-    <a href="#lattice"><span class="en">Lattice</span><span class="th i">แลตทิซ</span></a>
-    <a href="#harvest"><span class="en">Harvest</span><span class="th i">เก็บเกี่ยว</span></a>
-    <a href="#sites"><span class="en">Our sites</span><span class="th i">เว็บเรา</span></a>
-  </nav>
-  <div class="lang" role="group" aria-label="Language">
-    <button type="button" id="l-en" data-l="en">EN</button>
+  <div class="lang" role="group" aria-label="ภาษา / Language">
     <button type="button" id="l-th" data-l="th">ไทย</button>
-    <button type="button" id="l-both" data-l="both">EN+ไทย</button>
+    <button type="button" id="l-en" data-l="en">English</button>
   </div>
-</div></header>
+</header>
 
-<div class="hero wide">
-  <canvas id="spiral" aria-label="An Ulam spiral of the numbers 1 to 2,500. Primes glow gold. A wave sweeps outward and splits each semiprime into its two factors."></canvas>
-  <div class="words">
-    <div class="eyebrow"><span class="en">Post-quantum, drawn with math</span><span class="th i">หลังยุคควอนตัม วาดด้วยคณิตศาสตร์</span></div>
-    <h1><span class="en">All Factored</span><span class="th">แยกหมดแล้ว</span></h1>
-    <p class="lede en">Most of the locks on the internet rest on one bet: multiplyin' two big primes is easy, and goin' backwards ain't. A big enough quantum computer wins that bet for the other side. So let's live like it already has.</p>
-    <p class="lede th">กุญแจเกือบทั้งหมดบนอินเทอร์เน็ตวางเดิมพันไว้ข้อเดียว คือการคูณจำนวนเฉพาะใหญ่ ๆ สองตัวนั้นง่าย แต่การย้อนกลับไปหาว่าคูณมาจากอะไรนั้นยากมาก คอมพิวเตอร์ควอนตัมที่ใหญ่พอจะชนะเดิมพันนี้ งั้นเราใช้ชีวิตแบบที่มันชนะไปแล้วเลยดีกว่า</p>
-    <div class="says">
-      <span class="who">NaN</span><div><div class="line en">"Pretend every lock's already been picked. Then build like it."</div><div class="line th">"ทำเหมือนกุญแจทุกดอกถูกไขไปแล้ว แล้วสร้างของเราให้รอดแบบนั้น"</div></div>
-      <span class="who b">Beer</span><div><div class="line en">"So what's still safe? Draw it for me."</div><div class="line th">"แล้วอะไรที่ยังปลอดภัยอยู่ล่ะ วาดให้ดูหน่อย"</div></div>
+<main class="wrap">
+  <h1><span class="th">แยกหมดแล้ว</span><span class="en">All Factored</span></h1>
+  <p class="lede th">กุญแจบนอินเทอร์เน็ตกำลังจะเปลี่ยน ทำไม? ดูจากรูป แตะเล่นได้ทุกอัน</p>
+  <p class="lede en">The locks on the internet are about to change. Why? See it in pictures. Touch every one.</p>
+
+  <!-- 1 paint -->
+  <section class="pen" id="paint">
+    <h2><svg viewBox="0 0 52 52" aria-hidden="true"><rect x="6" y="18" width="18" height="26" rx="4" fill="var(--red)" stroke="var(--ink)" stroke-width="2.5"/><rect x="28" y="18" width="18" height="26" rx="4" fill="var(--blue)" stroke="var(--ink)" stroke-width="2.5"/><path d="M15 18c0-8 22-8 22 0" fill="none" stroke="var(--ink)" stroke-width="2.5"/></svg>
+      <span class="th">ผสมสี</span><span class="en">Mixing paint</span></h2>
+    <p class="th">ผสมสีสองกระป๋อง ง่ายมาก แต่ถ้ายื่นสีที่ผสมแล้วให้ แล้วถามว่ามาจากกระป๋องไหน ยากมาก</p>
+    <p class="en">Mixing two cans of paint is easy. Handing someone the mix and asking which two cans it came from is hard.</p>
+    <p class="th">เลือกสองกระป๋อง:</p><p class="en">Pick two cans:</p>
+    <div class="pots" id="pots"></div>
+    <div class="mixrow"><div class="blob" id="blob">?</div><span id="mixeq"></span></div>
+    <div class="row"><button type="button" class="go" id="unmix"><span class="th">แยกกลับได้ไหม?</span><span class="en">Can you unmix it?</span></button></div>
+    <div class="grid" id="grid" hidden></div>
+    <p class="say" id="paintsay" aria-live="polite"></p>
+  </section>
+
+  <!-- 2 tables -->
+  <section class="pen" id="seat">
+    <h2><svg viewBox="0 0 52 52" aria-hidden="true"><rect x="8" y="22" width="36" height="10" rx="3" fill="var(--table)" stroke="var(--ink)" stroke-width="2.5"/><circle cx="14" cy="14" r="5" fill="var(--teal)"/><circle cx="26" cy="14" r="5" fill="var(--teal)"/><circle cx="38" cy="14" r="5" fill="var(--teal)"/><circle cx="20" cy="42" r="5" fill="var(--red)"/></svg>
+      <span class="th">จัดโต๊ะ</span><span class="en">Seat the guests</span></h2>
+    <p class="th">แขก 221 คน โต๊ะต้องขนาดเท่ากันทุกโต๊ะ ห้ามมีคนยืน โต๊ะต้องขนาดเท่าไร? ต้องลองทีละขนาด</p>
+    <p class="en">221 guests. Every table the same size, nobody left standing. What size? You have to try each size.</p>
+    <div class="toy"><canvas id="rect" height="330" aria-label="Guests as dots at tables; red dots are guests left standing."></canvas></div>
+    <div class="row"><button type="button" class="go primary" id="rnext"><span class="th">ลองขนาดถัดไป</span><span class="en">Try the next size</span></button><button type="button" class="go" id="rauto"><span class="th">ลองให้ดูทั้งหมด</span><span class="en">Try them all</span></button></div>
+    <p class="say" id="rsay" aria-live="polite"></p>
+  </section>
+
+  <!-- 3 mail slot -->
+  <section class="pen" id="slot">
+    <h2><svg viewBox="0 0 52 52" aria-hidden="true"><rect x="8" y="12" width="36" height="32" rx="4" fill="var(--gold)" stroke="var(--ink)" stroke-width="2.5"/><rect x="16" y="20" width="20" height="4" rx="2" fill="var(--ink)"/><circle cx="26" cy="34" r="3" fill="var(--ink)"/></svg>
+      <span class="th">ตู้จดหมาย</span><span class="en">The mail slot</span></h2>
+    <p class="th">กุญแจบนอินเทอร์เน็ตเหมือนตู้จดหมาย ใครก็หย่อนจดหมายเข้าช่องได้ แต่คนเปิดตู้ได้มีคนเดียว คือคนที่มีลูกกุญแจ</p>
+    <p class="en">Internet locks work like a mail slot. Anyone can drop a letter in. Only the person with the key can open the box.</p>
+    <svg class="slotbox" id="box" viewBox="0 0 320 260" role="img" aria-label="A mailbox with a slot">
+      <rect x="60" y="80" width="200" height="150" rx="14" fill="var(--gold)" stroke="var(--ink)" stroke-width="4"/>
+      <g class="letter" id="letter"><rect x="120" y="4" width="80" height="54" rx="4" fill="var(--panel)" stroke="var(--ink)" stroke-width="3"/><path d="M122 8l38 26 38-26" fill="none" stroke="var(--ink)" stroke-width="3"/></g>
+      <g class="lid" id="lid"><rect x="60" y="80" width="200" height="130" rx="14" fill="var(--gold)" stroke="var(--ink)" stroke-width="4"/><rect x="110" y="110" width="100" height="12" rx="6" fill="var(--ink)"/><circle cx="160" cy="175" r="10" fill="var(--ink)"/></g>
+    </svg>
+    <div class="row">
+      <button type="button" class="go" id="drop"><span class="th">หย่อนจดหมาย (ใครก็ได้)</span><span class="en">Drop a letter (anyone)</span></button>
+      <button type="button" class="go" id="nokey"><span class="th">เปิดแบบไม่มีกุญแจ</span><span class="en">Open without the key</span></button>
+      <button type="button" class="go primary" id="key"><span class="th">เปิดด้วยกุญแจ</span><span class="en">Open with the key</span></button>
     </div>
-    <p class="en" style="color:var(--muted);font-size:15px">Up top: the numbers 1 to 2,500 wound in a spiral. Gold dots are primes. Each teal dot is a semiprime, two primes multiplied, and the wave splits it apart.</p>
-    <p class="th" style="font-size:15px">ด้านบน: เลข 1 ถึง 2,500 ขดเป็นก้นหอย จุดสีทองคือจำนวนเฉพาะ จุดสีเขียวน้ำทะเลคือเซมิไพรม์ ผลคูณของจำนวนเฉพาะสองตัว แล้วคลื่นก็แยกมันออกจากกัน</p>
-  </div>
-</div>
+    <p class="say" id="slotsay" aria-live="polite"></p>
+    <p class="th">ช่องจดหมาย = จำนวนแขก (ใครก็เห็น) · ลูกกุญแจ = ขนาดโต๊ะ (เจ้าของรู้คนเดียว) กุญแจจริงใช้เลขยาว 617 หลัก ถ้าลองทีละขนาด ทั้งโลกช่วยกันก็ไม่เสร็จ</p>
+    <p class="en">The slot = the guest count (anyone can see it). The key = the table size (only the owner knows). Real locks use a number 617 digits long. Trying sizes one by one, the whole world together wouldn't finish.</p>
+    <p class="th">โทรศัพท์และบล็อกเชน (สมุดบัญชีดิจิทัลที่ทุกคนเห็นร่วมกัน) ใช้กุญแจญาติกัน ชื่อ "เส้นโค้งวงรี" บริษัท <a href="https://github.com/ChainsAtlas/whitepaper">ChainsAtlas</a> ในสิงคโปร์ ทำระบบเชื่อมบล็อกเชนหลายสายเข้าด้วยกัน บล็อกเชนพวกนั้นใช้กุญแจเส้นโค้ง</p>
+    <p class="en">Phones and blockchains (digital ledgers everyone shares) use a cousin lock called "elliptic curves." <a href="https://github.com/ChainsAtlas/whitepaper">ChainsAtlas</a> in Singapore connects many blockchains together, and those blockchains use curve locks.</p>
+  </section>
 
-<main>
-<section id="multiply"><div class="wrap">
-  <div class="eyebrow"><span class="en">One</span><span class="th i">หนึ่ง</span></div>
-  <h2><span class="en">Multiply, then go back</span><span class="th">คูณ แล้วย้อนกลับ</span></h2>
-  <p class="en">Pick two primes. The dots snap into a rectangle quick as a wink. Now hand somebody the pile and ask which rectangle it came from. They've got to try every width, one at a time, till one comes out even.</p>
-  <p class="th">เลือกจำนวนเฉพาะสองตัว จุดจะเรียงเป็นสี่เหลี่ยมทันทีในพริบตา ทีนี้ลองยื่นกองจุดให้คนอื่น แล้วถามว่ามาจากสี่เหลี่ยมขนาดไหน เขาต้องลองทีละความกว้าง ไล่ไปเรื่อย ๆ จนกว่าจะมีแถวที่ลงตัวพอดี</p>
-</div>
-<div class="stage wide">
-  <canvas id="rect" height="360"></canvas>
-  <div class="ctl">
-    <label for="rp"><span class="en">prime</span><span class="th i">จำนวนเฉพาะ</span> <select id="rp"></select></label>
-    <span>×</span>
-    <label for="rq"><select id="rq"></select></label>
-    <button type="button" class="go" id="rmul"><span class="en">Multiply</span><span class="th i">คูณ</span></button>
-    <button type="button" class="go primary" id="rback"><span class="en">Go backwards</span><span class="th i">ย้อนกลับ</span></button>
-  </div>
-  <div class="read" id="rread" aria-live="polite"></div>
-</div>
-<div class="wrap">
-  <p class="en">A <b>semiprime</b> is a number with exactly two prime factors. RSA, the lock on a big share of the web's older keys, uses one about 617 digits long. Tryin' widths one by one would take around 10<sup>308</sup> tries. The visible universe holds about 10<sup>80</sup> atoms.</p>
-  <p class="th"><b>เซมิไพรม์</b> คือจำนวนที่มีตัวประกอบเฉพาะสองตัวพอดี RSA ซึ่งเป็นกุญแจของเว็บและระบบรุ่นเก่าจำนวนมาก ใช้เลขยาวราว 617 หลัก ถ้าลองทีละความกว้างต้องลองราว 10<sup>308</sup> ครั้ง ขณะที่อะตอมในเอกภพที่มองเห็นได้มีราว 10<sup>80</sup> ตัว</p>
-  <div class="big">
-    <div><b>617</b><span class="en">digits in an RSA-2048 number</span><span class="th i">หลัก ในเลข RSA-2048</span></div>
-    <div><b>250</b><span class="en">digits: biggest RSA number factored the ordinary way (2020)</span><span class="th i">หลัก: เลข RSA ใหญ่สุดที่แยกด้วยคอมพิวเตอร์ธรรมดา (2020)</span></div>
-    <div><b>≈2,700</b><span class="en">core-years of computing it took</span><span class="th i">ปีต่อคอร์ ที่ใช้คำนวณ</span></div>
-  </div>
-  <p class="en">Smarter methods than tryin' widths exist, and they still stall out a long way short of 617 digits. That gap is the whole bet.</p>
-  <p class="th">มีวิธีที่ฉลาดกว่าการลองทีละความกว้าง แต่ก็ยังไปไม่ถึง 617 หลักอยู่ดี ช่องว่างตรงนี้แหละคือเดิมพันทั้งหมด</p>
-</div></section>
+  <!-- 4 flashlight / floodlight -->
+  <section class="pen" id="light">
+    <h2><svg viewBox="0 0 52 52" aria-hidden="true"><path d="M6 20h14l14-10v32L20 32H6z" fill="var(--gold)" stroke="var(--ink)" stroke-width="2.5"/><path d="M40 14l8-4M40 26h9M40 38l8 4" stroke="var(--gold)" stroke-width="3"/></svg>
+      <span class="th">ไฟฉาย กับ ไฟสนาม</span><span class="en">Flashlight, floodlight</span></h2>
+    <p class="th">คอมพิวเตอร์ธรรมดาเหมือนเดินถือไฟฉายในร้านมืด ส่องดูแขกทีละคน คอมพิวเตอร์ควอนตัมเหมือนเปิดไฟสนาม เห็นทั้งร้านในทีเดียว แล้วลายที่ซ้ำ ๆ ก็โผล่ออกมา</p>
+    <p class="en">An ordinary computer is walking a dark restaurant with a flashlight, one guest at a time. A quantum computer switches on the floodlight: the whole room at once, and the repeating pattern jumps out.</p>
+    <div class="toy"><canvas id="lamp" height="330" aria-label="A dark room of guests; every 17th guest wears a gold hat. The floodlight shows them lined up in slanted stripes."></canvas></div>
+    <div class="row"><button type="button" class="go on" id="flash"><span class="th">ไฟฉาย</span><span class="en">Flashlight</span></button><button type="button" class="go" id="flood"><span class="th">ไฟสนาม</span><span class="en">Floodlight</span></button></div>
+    <p class="say" id="lampsay" aria-live="polite"></p>
+    <p class="th">ผู้จัดการคนนี้ (เครื่องที่ใหญ่พอ) มาแล้วหรือยัง? เท่าที่เรารู้ ยังไม่มา ปี 2025 มีนักวิจัยคำนวณว่า เครื่องไม่ถึงล้านคิวบิต ไขกุญแจ 617 หลักได้ในไม่ถึงอาทิตย์ เครื่องที่ใหญ่ที่สุดตอนนี้มีหลักพัน</p>
+    <p class="en">Is this manager (a big enough machine) here yet? Not that we know of. In 2025 a researcher worked out that under a million qubits could open a 617-digit lock in under a week. The biggest machines now have a few thousand.</p>
+  </section>
 
-<section id="rhythm"><div class="wrap">
-  <div class="eyebrow"><span class="en">Two</span><span class="th i">สอง</span></div>
-  <h2><span class="en">The rhythm trick</span><span class="th">เคล็ดลับจังหวะ</span></h2>
-  <p class="en">Here's the sneaky part. Pick a number <i>a</i> and keep multiplyin' it by itself, only keepin' the remainder after dividin' by <i>N</i>. That's clock arithmetic, like the hours wrappin' round past twelve. The remainders march in a loop, and the length of the loop, the <b>period</b>, gives away <i>N</i>'s factors.</p>
-  <p class="th">ส่วนที่แยบยลอยู่ตรงนี้ เลือกเลข <i>a</i> มาหนึ่งตัว แล้วคูณมันซ้ำ ๆ โดยเก็บแค่เศษที่เหลือจากการหารด้วย <i>N</i> นี่คือเลขคณิตแบบนาฬิกา เหมือนเข็มที่วนกลับเมื่อเลยสิบสองนาฬิกา เศษเหล่านี้จะวนเป็นรอบ และความยาวของรอบ หรือ<b>คาบ</b> จะบอกตัวประกอบของ <i>N</i> ออกมา</p>
-</div>
-<div class="stage wide">
-  <canvas id="period" height="300"></canvas>
-  <canvas id="spectrum" height="150"></canvas>
-  <div class="ctl">
-    <label for="pn">N <select id="pn"></select></label>
-    <label for="pa">a <select id="pa"></select></label>
-    <button type="button" class="go" id="proll"><span class="en">Roll a new a</span><span class="th i">สุ่ม a ใหม่</span></button>
-  </div>
-  <div class="read" id="pread" aria-live="polite"></div>
-</div>
-<div class="wrap">
-  <p class="en">Top: the remainders <i>a</i><sup>x</sup> mod <i>N</i>, one bar for each <i>x</i>. Bottom: the same row played as a sound and split into pitches. The spikes land every <i>L</i>/<i>r</i> steps; read the spacing and you've got the period.</p>
-  <p class="th">ด้านบน: เศษ <i>a</i><sup>x</sup> mod <i>N</i> หนึ่งแท่งต่อหนึ่งค่า <i>x</i> ด้านล่าง: แถวเดียวกันนั้นเล่นออกมาเป็นเสียงแล้วแยกเป็นระดับเสียง ยอดแหลมขึ้นทุก ๆ <i>L</i>/<i>r</i> ช่อง อ่านระยะห่างก็ได้คาบ</p>
-  <p class="en">An ordinary computer has to walk the loop to learn how long it is, and for a 617-digit <i>N</i> the loop is longer than the universe is old. A quantum computer hears the whole loop at once, the way your ear catches a note's pitch without countin' wiggles. Peter Shor worked that out in 1994.</p>
-  <p class="th">คอมพิวเตอร์ธรรมดาต้องเดินวนทีละก้าวถึงจะรู้ว่ารอบยาวเท่าไร และสำหรับ <i>N</i> ยาว 617 หลัก รอบนั้นยาวกว่าอายุของเอกภพ แต่คอมพิวเตอร์ควอนตัมฟังทั้งรอบได้ในคราวเดียว เหมือนหูเราจับระดับเสียงของโน้ตได้โดยไม่ต้องนับการสั่น ปีเตอร์ ชอร์ คิดวิธีนี้ออกเมื่อปี 1994</p>
-  <div class="says">
-    <span class="who">NaN</span><div><div class="line en">"It ain't guessin' the lock. It's listenin' to it hum."</div><div class="line th">"มันไม่ได้เดารหัส มันฟังเสียงกุญแจฮัมเพลง"</div></div>
-    <span class="who b">Beer</span><div><div class="line en">"And it works on the big numbers?"</div><div class="line th">"แล้วใช้กับเลขใหญ่ ๆ ได้จริงเหรอ"</div></div>
-    <span class="who">NaN</span><div><div class="line en">"Not on today's machines. A 2025 estimate says RSA-2048 falls to under a million noisy qubits in under a week. The biggest machines now count their qubits in the thousands."</div><div class="line th">"เครื่องทุกวันนี้ยังทำไม่ได้ ปี 2025 มีการประเมินว่า RSA-2048 จะแตกได้ด้วยคิวบิตที่ยังมีสัญญาณรบกวนไม่ถึงล้านตัว ภายในไม่ถึงหนึ่งสัปดาห์ ส่วนเครื่องที่ใหญ่ที่สุดตอนนี้มีคิวบิตหลักพัน"</div></div>
-  </div>
-</div></section>
+  <!-- 5 freezer -->
+  <section class="pen" id="freezer">
+    <h2><svg viewBox="0 0 52 52" aria-hidden="true"><rect x="10" y="4" width="32" height="44" rx="4" fill="var(--blue)" stroke="var(--ink)" stroke-width="2.5"/><path d="M10 20h32" stroke="var(--ink)" stroke-width="2.5"/><path d="M16 10v5M16 26v8" stroke="var(--ink)" stroke-width="3"/><path d="M30 30l6 6M36 30l-6 6M33 28v10M28 33h10" stroke="#fff" stroke-width="2"/></svg>
+      <span class="th">ช่องแช่แข็ง</span><span class="en">The freezer</span></h2>
+    <p class="th">โจรไม่ต้องรอ มันขโมยสำเนาของที่ล็อกไว้วันนี้ ใส่ช่องแช่แข็ง รอวันที่ผู้จัดการคนใหม่มา แล้วค่อยเอาออกมาเปิด</p>
+    <p class="en">A thief doesn't wait. They copy the locked box today, put it in the freezer, and take it out the day the new manager arrives.</p>
+    <div class="toy"><canvas id="mosca" height="190"></canvas></div>
+    <div class="range"><label for="mx"><span class="th">ความลับต้องเก็บกี่ปี</span><span class="en">Years it must stay secret</span></label><output id="mxo"></output><input type="range" id="mx" min="0" max="30" value="10"></div>
+    <div class="range"><label for="my"><span class="th">เปลี่ยนกุญแจใช้กี่ปี</span><span class="en">Years to change the locks</span></label><output id="myo"></output><input type="range" id="my" min="0" max="15" value="5"></div>
+    <div class="range"><label for="mz"><span class="th">อีกกี่ปีผู้จัดการจะมา</span><span class="en">Years till the manager comes</span></label><output id="mzo"></output><input type="range" id="mz" min="1" max="30" value="12"></div>
+    <p class="say" id="msay" aria-live="polite"></p>
+  </section>
 
-<section id="curves"><div class="wrap">
-  <div class="eyebrow"><span class="en">Three</span><span class="th i">สาม</span></div>
-  <h2><span class="en">Curves fall too</span><span class="th">เส้นโค้งก็ร่วงด้วย</span></h2>
-  <p class="en">Your phone, your bank app and most blockchains skip semiprimes and sign with <b>elliptic curves</b> instead. Start at a point <i>P</i> on the curve and hop: <i>P</i>, 2<i>P</i>, 3<i>P</i>… The number of hops is your secret key. Where you land is your public key. Workin' out the hop count from the landing spot is the hard part, and it turns out to be another loop with a period. Shor's trick cracks it the same way.</p>
-  <p class="th">โทรศัพท์ แอปธนาคาร และบล็อกเชนส่วนใหญ่ไม่ได้ใช้เซมิไพรม์ แต่เซ็นด้วย<b>เส้นโค้งวงรี</b>แทน เริ่มจากจุด <i>P</i> บนเส้นโค้ง แล้วกระโดด <i>P</i>, 2<i>P</i>, 3<i>P</i>… จำนวนครั้งที่กระโดดคือกุญแจลับ ตำแหน่งที่ลงคือกุญแจสาธารณะ การย้อนหาจำนวนครั้งจากจุดที่ลงคือส่วนที่ยาก และมันกลายเป็นรอบที่มีคาบอีกเหมือนกัน เคล็ดลับของชอร์จึงแก้ได้แบบเดียวกัน</p>
-  <p class="en"><a href="https://github.com/ChainsAtlas/whitepaper">ChainsAtlas</a>, a Singapore start-up, builds a layer that lets one program run across many blockchains without a rewrite. The chains it reaches for sign with curves like this one: Bitcoin and Ethereum both use <b>secp256k1</b>, <i>y</i>² = <i>x</i>³ + 7. Below it's drawn over the whole numbers 0 to 96 instead of the real line, which is how the math is done for keys.</p>
-  <p class="th"><a href="https://github.com/ChainsAtlas/whitepaper">ChainsAtlas</a> สตาร์ทอัปจากสิงคโปร์ สร้างชั้นซอฟต์แวร์ที่ให้โปรแกรมเดียวทำงานข้ามบล็อกเชนหลายสายโดยไม่ต้องเขียนใหม่ บล็อกเชนที่มันเชื่อมถึงเซ็นด้วยเส้นโค้งแบบนี้ ทั้ง Bitcoin และ Ethereum ใช้ <b>secp256k1</b> คือ <i>y</i>² = <i>x</i>³ + 7 ภาพข้างล่างวาดบนจำนวนเต็ม 0 ถึง 96 แทนเส้นจำนวนจริง ซึ่งเป็นวิธีที่ใช้คำนวณกุญแจจริง ๆ</p>
-</div>
-<div class="stage wide">
-  <canvas id="curve" height="420"></canvas>
-  <div class="ctl">
-    <label for="ck"><span class="en">hops</span><span class="th i">จำนวนครั้งที่กระโดด</span> k <input type="range" id="ck" min="1" max="60" value="23"></label>
-    <button type="button" class="go" id="cplay"><span class="en">Play the hops</span><span class="th i">เล่นการกระโดด</span></button>
-  </div>
-  <div class="read" id="cread" aria-live="polite"></div>
-</div>
-<div class="wrap">
-  <div class="says">
-    <span class="who b">Beer</span><div><div class="line en">"So a quantum computer could sign as me?"</div><div class="line th">"แปลว่าคอมควอนตัมเซ็นชื่อแทนเราได้เหรอ"</div></div>
-    <span class="who">NaN</span><div><div class="line en">"Once it's seen your public key, it can work out the private one. That's why the signin' half matters as much as the lock."</div><div class="line th">"ถ้ามันเห็นกุญแจสาธารณะของเราแล้ว มันก็คำนวณกุญแจลับออกมาได้ ครึ่งที่เป็นลายเซ็นจึงสำคัญพอ ๆ กับตัวล็อก"</div></div>
-  </div>
-</div></section>
+  <!-- 6 new lock -->
+  <section class="pen" id="room">
+    <h2><svg viewBox="0 0 52 52" aria-hidden="true"><g fill="var(--table)" stroke="var(--ink)" stroke-width="2"><rect x="6" y="8" width="12" height="8" rx="2" transform="rotate(-15 12 12)"/><rect x="30" y="4" width="12" height="8" rx="2" transform="rotate(-15 36 8)"/><rect x="10" y="30" width="12" height="8" rx="2" transform="rotate(-15 16 34)"/><rect x="34" y="26" width="12" height="8" rx="2" transform="rotate(-15 40 30)"/></g><path d="M26 46l6-10" stroke="var(--green)" stroke-width="3"/></svg>
+      <span class="th">กุญแจแบบใหม่</span><span class="en">The new lock</span></h2>
+    <p class="th">ห้องอาหารใหญ่ โต๊ะเรียงเป็นแถวเอียง แขกยืนอยู่ตรงไหนสักที่ ต้องพาไปโต๊ะที่ใกล้ที่สุด เจ้าของร้านมีแผนผังดี (ลูกศรเขียว) คนอื่นมีแผนผังแย่ (ลูกศรแดง) ของห้องเดียวกัน</p>
+    <p class="en">A big dining room with slanted rows of tables. A guest stands somewhere; walk them to the nearest table. The owner has a good map (green arrows). Everyone else has a bad map (red arrows) of the same room.</p>
+    <p class="th"><b>แตะตรงไหนก็ได้</b></p><p class="en"><b>Tap anywhere.</b></p>
+    <div class="toy"><canvas id="lat" height="360" aria-label="Tables in slanted rows. Tap to place a guest; green ring is the owner's answer, red ring the outsider's."></canvas></div>
+    <p class="say" id="lsay" aria-live="polite"></p>
+    <p class="th">ในรูปห้องมีสองทิศ ห้องในกุญแจใหม่มี 768 ทิศ ผู้จัดการคนใหม่ก็ยังหาทางลัดไม่เจอ สหรัฐฯ ประกาศเป็นมาตรฐานเมื่อปี 2024 ชื่อ ML-KEM</p>
+    <p class="en">This room has two directions. The room inside the new lock has 768. The new manager has no known shortcut there either. The US made it a standard in 2024, called ML-KEM.</p>
+  </section>
 
-<section id="lattice"><div class="wrap">
-  <div class="eyebrow"><span class="en">Four</span><span class="th i">สี่</span></div>
-  <h2><span class="en">The new locks</span><span class="th">กุญแจแบบใหม่</span></h2>
-  <p class="en">The replacement locks hide the secret in a <b>lattice</b>, a tilted grid of points. Hand somebody good directions, short arrows set near square, and findin' the grid point nearest any spot is easy. Hand 'em bad directions, long skinny arrows that make the very same grid, and they round off to the wrong point. Tap anywhere. Green used the good arrows. Red used the bad ones.</p>
-  <p class="th">กุญแจแบบใหม่ซ่อนความลับไว้ใน<b>แลตทิซ</b> คือตารางจุดที่เอียง ถ้าใครได้ทิศทางที่ดี เป็นลูกศรสั้น ๆ เกือบตั้งฉาก การหาจุดบนตารางที่ใกล้ตำแหน่งใดก็ได้ที่สุดนั้นง่าย แต่ถ้าได้ทิศทางที่แย่ เป็นลูกศรยาวเรียวที่สร้างตารางเดียวกันเป๊ะ ก็จะปัดไปผิดจุด แตะตรงไหนก็ได้ สีเขียวใช้ลูกศรที่ดี สีแดงใช้ลูกศรที่แย่</p>
-</div>
-<div class="stage wide">
-  <canvas id="lat" height="400" aria-label="A tilted grid of points with two sets of arrows. Tapping places a target; green and red rings show the nearest point each set of arrows finds."></canvas>
-  <div class="read" id="lread" aria-live="polite"></div>
-</div>
-<div class="wrap">
-  <p class="en">In two dimensions you can eyeball it. <b>ML-KEM-768</b>, the standard now guardin' the connections to our sites, does the same thing in 768 dimensions. Nobody has published a fast way through that, on ordinary computers or quantum ones. NIST made it a standard in August 2024 as FIPS 203, with two signature standards beside it: ML-DSA, built on lattices (FIPS 204), and SLH-DSA, built on hash functions (FIPS 205).</p>
-  <p class="th">ในสองมิติเรามองด้วยตาก็รู้ แต่ <b>ML-KEM-768</b> มาตรฐานที่ตอนนี้คุ้มกันการเชื่อมต่อไปยังเว็บของเรา ทำแบบเดียวกันใน 768 มิติ ยังไม่มีใครเผยแพร่วิธีลัดผ่านมันได้ ทั้งบนคอมพิวเตอร์ธรรมดาและคอมพิวเตอร์ควอนตัม NIST ประกาศเป็นมาตรฐานเมื่อสิงหาคม 2024 ในชื่อ FIPS 203 พร้อมมาตรฐานลายเซ็นอีกสองตัว คือ ML-DSA ที่สร้างบนแลตทิซ (FIPS 204) และ SLH-DSA ที่สร้างบนฟังก์ชันแฮช (FIPS 205)</p>
-</div></section>
+  <!-- 7 shopfront -->
+  <section class="pen" id="shop">
+    <h2><svg viewBox="0 0 52 52" aria-hidden="true"><path d="M4 18l6-10h32l6 10z" fill="var(--red)" stroke="var(--ink)" stroke-width="2.5"/><rect x="8" y="18" width="36" height="28" fill="var(--panel)" stroke="var(--ink)" stroke-width="2.5"/><rect x="14" y="26" width="10" height="20" fill="var(--teal)" stroke="var(--ink)" stroke-width="2"/><rect x="30" y="26" width="10" height="8" fill="var(--gold)" stroke="var(--ink)" stroke-width="2"/></svg>
+      <span class="th">หน้าร้านของเรา</span><span class="en">Our shopfront</span></h2>
+    <p class="th">เว็บของเรามีสองอย่าง: <b>กุญแจประตู</b> กับ <b>ใบอนุญาตบนผนัง</b> แตะดูทีละอัน</p>
+    <p class="en">Our websites have two things: <b>the door lock</b> and <b>the licence on the wall</b>. Tap each one.</p>
+    <svg class="shop" viewBox="0 0 560 320" role="img" aria-label="A shopfront with a door lock marked new and a framed licence marked not yet">
+      <path d="M20 90 L60 20 H500 L540 90 Z" fill="var(--red)" stroke="var(--ink)" stroke-width="4"/>
+      <path d="M60 20v70M130 20v70M200 20v70M270 20v70M340 20v70M410 20v70M480 20v70" stroke="var(--panel)" stroke-width="10" opacity=".55"/>
+      <rect x="40" y="90" width="480" height="215" fill="var(--panel)" stroke="var(--ink)" stroke-width="4"/>
+      <g class="hot" id="hotdoor" tabindex="0" role="button" aria-label="Door lock">
+        <rect x="90" y="130" width="130" height="175" fill="var(--teal)" stroke="var(--ink)" stroke-width="4"/>
+        <circle cx="195" cy="220" r="26" fill="var(--green)" stroke="var(--ink)" stroke-width="4"/>
+        <path d="M183 220l9 9 16-18" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+      </g>
+      <g class="hot" id="hotwall" tabindex="0" role="button" aria-label="Licence on the wall">
+        <rect x="300" y="130" width="160" height="110" fill="var(--gold)" stroke="var(--ink)" stroke-width="4"/>
+        <rect x="316" y="146" width="128" height="78" fill="var(--panel)"/>
+        <path d="M332 166h96M332 184h96M332 202h60" stroke="var(--muted)" stroke-width="5"/>
+        <circle cx="440" cy="236" r="24" fill="var(--red)" stroke="var(--ink)" stroke-width="4"/>
+        <path d="M430 236h20" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+      </g>
+    </svg>
+    <p class="say" id="shopsay" aria-live="polite"></p>
+    <table>
+      <tr><td>motdang.net</td><td class="ok">✓ <span class="th">ประตูใหม่</span><span class="en">new door</span></td><td class="no">✗ <span class="th">ใบเก่า</span><span class="en">old licence</span></td></tr>
+      <tr><td>hongdam.net</td><td class="ok">✓ <span class="th">ประตูใหม่</span><span class="en">new door</span></td><td class="no">✗ <span class="th">ใบเก่า</span><span class="en">old licence</span></td></tr>
+      <tr><td>wichaa.net</td><td class="ok">✓ <span class="th">ประตูใหม่</span><span class="en">new door</span></td><td class="no">✗ <span class="th">ใบเก่า</span><span class="en">old licence</span></td></tr>
+      <tr><td>nanobotco.github.io</td><td class="ok">✓ <span class="th">ประตูใหม่</span><span class="en">new door</span></td><td class="no">✗ <span class="th">ใบเก่า</span><span class="en">old licence</span></td></tr>
+    </table>
+    <p class="th" style="font-size:17px;color:var(--muted)">ตรวจเมื่อ 28 กันยายน 2026</p><p class="en" style="font-size:17px;color:var(--muted)">Checked 28 September 2026.</p>
+  </section>
 
-<section id="harvest"><div class="wrap">
-  <div class="eyebrow"><span class="en">Five</span><span class="th i">ห้า</span></div>
-  <h2><span class="en">Harvest now, open later</span><span class="th">เก็บวันนี้ เปิดวันหน้า</span></h2>
-  <p class="en">Somebody can record scrambled traffic today and sit on it till the machine shows up. Michele Mosca's rule of thumb: take how many years a secret has to stay secret (<i>x</i>), add how many years it takes you to switch (<i>y</i>). If that beats the years until a big quantum computer (<i>z</i>), you're already late.</p>
-  <p class="th">ใครก็ตามสามารถอัดข้อมูลที่เข้ารหัสไว้วันนี้ แล้วเก็บไว้จนกว่าเครื่องที่แกะได้จะมาถึง กฎง่าย ๆ ของมิเคเล มอสกา: เอาจำนวนปีที่ความลับต้องอยู่เป็นความลับ (<i>x</i>) บวกจำนวนปีที่ใช้เปลี่ยนระบบ (<i>y</i>) ถ้ามากกว่าจำนวนปีจนกว่าจะมีคอมพิวเตอร์ควอนตัมขนาดใหญ่ (<i>z</i>) แปลว่าเราสายไปแล้ว</p>
-  <p class="formula">x + y &gt; z &nbsp;⇒&nbsp; <span class="en">already late</span><span class="th i">สายไปแล้ว</span></p>
-</div>
-<div class="stage wide">
-  <canvas id="mosca" height="200"></canvas>
-  <div class="ctl">
-    <label for="mx">x <span class="en">stays secret</span><span class="th i">ต้องเป็นความลับ</span> <input type="range" id="mx" min="0" max="30" value="10"> <output id="mxo"></output></label>
-    <label for="my">y <span class="en">to switch</span><span class="th i">ใช้เปลี่ยน</span> <input type="range" id="my" min="0" max="15" value="5"> <output id="myo"></output></label>
-    <label for="mz">z <span class="en">till the machine</span><span class="th i">จนกว่าเครื่องจะมา</span> <input type="range" id="mz" min="1" max="30" value="12"> <output id="mzo"></output></label>
-  </div>
-  <div class="read" id="mread" aria-live="polite"></div>
-</div>
-<div class="wrap">
-  <p class="en">Britain's National Cyber Security Centre set dates in March 2025: know what you've got and plan by 2028, move the most important systems by 2031, finish by 2035.</p>
-  <p class="th">ศูนย์ความมั่นคงปลอดภัยไซเบอร์แห่งชาติของอังกฤษ (NCSC) กำหนดวันไว้เมื่อมีนาคม 2025: สำรวจว่ามีอะไรบ้างและวางแผนให้เสร็จภายในปี 2028 ย้ายระบบที่สำคัญที่สุดภายในปี 2031 และย้ายทั้งหมดให้เสร็จภายในปี 2035</p>
-</div></section>
+  <!-- 8 inspector -->
+  <section class="pen" id="inspect">
+    <h2><svg viewBox="0 0 52 52" aria-hidden="true"><rect x="8" y="8" width="28" height="38" rx="3" fill="var(--panel)" stroke="var(--ink)" stroke-width="2.5"/><rect x="16" y="4" width="12" height="8" rx="2" fill="var(--ink)"/><path d="M14 22l4 4 7-8M14 34h14" stroke="var(--green)" stroke-width="3" fill="none"/><circle cx="38" cy="34" r="8" fill="none" stroke="var(--ink)" stroke-width="3"/><path d="M44 40l6 6" stroke="var(--ink)" stroke-width="4"/></svg>
+      <span class="th">เจ้าหน้าที่ตรวจ</span><span class="en">The inspector</span></h2>
+    <p class="th">ร้านอาหารมีเจ้าหน้าที่สาธารณสุขมาตรวจครัว ระบบคอมพิวเตอร์ก็มีคนตรวจ เขาได้รับอนุญาตให้ลองงัดกุญแจ เพื่อหาจุดอ่อนก่อนโจรเจอ <a href="https://redteampartners.co.uk/partners/">Red Team Partners</a> ในลอนดอนเป็นบริษัทแบบนี้</p>
+    <p class="en">A restaurant gets a health inspector for the kitchen. Computer systems get inspectors too. They have permission to try the locks, to find weak spots before a thief does. <a href="https://redteampartners.co.uk/partners/">Red Team Partners</a> in London is one.</p>
+  </section>
 
-<section id="sites"><div class="wrap">
-  <div class="eyebrow"><span class="en">Six</span><span class="th i">หก</span></div>
-  <h2><span class="en">Our sites, checked</span><span class="th">เว็บของเรา ตรวจแล้ว</span></h2>
-  <p class="en">A web connection has two halves: the handshake that makes a fresh secret (the lock) and the certificate that proves who's talkin' (the ID card). Checked 28 September 2026 with OpenSSL 3.6.</p>
-  <p class="th">การเชื่อมต่อเว็บมีสองครึ่ง: การจับมือที่สร้างความลับขึ้นใหม่ (ตัวล็อก) กับใบรับรองที่ยืนยันว่าใครกำลังคุยอยู่ (บัตรประชาชน) ตรวจเมื่อ 28 กันยายน 2026 ด้วย OpenSSL 3.6</p>
-  <div class="tbl"><table>
-    <thead><tr><th><span class="en">Site</span><span class="th i">เว็บ</span></th><th><span class="en">Lock</span><span class="th i">ตัวล็อก</span></th><th><span class="en">ID card</span><span class="th i">บัตร</span></th></tr></thead>
-    <tbody>
-      <tr><td>motdang.net</td><td><code>X25519MLKEM768</code> <span class="ok">✓ <span class="en">post-quantum hybrid</span><span class="th i">ไฮบริดหลังควอนตัม</span></span></td><td>ECDSA <span class="no"><span class="en">not yet</span><span class="th i">ยัง</span></span></td></tr>
-      <tr><td>hongdam.net</td><td><code>X25519MLKEM768</code> <span class="ok">✓</span></td><td>ECDSA <span class="no"><span class="en">not yet</span><span class="th i">ยัง</span></span></td></tr>
-      <tr><td>wichaa.net</td><td><code>X25519MLKEM768</code> <span class="ok">✓</span></td><td>ECDSA <span class="no"><span class="en">not yet</span><span class="th i">ยัง</span></span></td></tr>
-      <tr><td>nanobotco.github.io</td><td><code>X25519MLKEM768</code> <span class="ok">✓</span></td><td>RSA <span class="no"><span class="en">not yet</span><span class="th i">ยัง</span></span></td></tr>
-      <tr><td><span class="en">git push to GitHub (SSH)</span><span class="th i">ส่งโค้ดขึ้น GitHub (SSH)</span></td><td><code>sntrup761x25519</code> <span class="ok">✓</span></td><td>Ed25519 <span class="no"><span class="en">not yet</span><span class="th i">ยัง</span></span></td></tr>
-      <tr><td>github.com <span class="en">(web)</span><span class="th i">(เว็บ)</span></td><td><code>X25519</code> <span class="no"><span class="en">classical</span><span class="th i">แบบเดิม</span></span></td><td>—</td></tr>
-    </tbody>
-  </table></div>
-  <p class="en">The lock half is post-quantum today: somebody recordin' the traffic to our sites can't open it later with Shor's trick. <b>Hybrid</b> means the old lock and the new one both sit on the door, so a thief has to pick both. The ID-card half waits on the certificate authorities and the browsers. Post-quantum signatures run big, and the web ain't settled yet on how to carry them.</p>
-  <p class="th">ครึ่งที่เป็นตัวล็อกเป็นแบบหลังควอนตัมแล้ววันนี้ ใครที่อัดข้อมูลที่วิ่งไปยังเว็บของเราไว้ จะเอาไปแกะทีหลังด้วยเคล็ดลับของชอร์ไม่ได้ <b>ไฮบริด</b> แปลว่ามีทั้งล็อกเก่าและล็อกใหม่อยู่บนประตูเดียวกัน ขโมยต้องไขให้ได้ทั้งสองอัน ส่วนครึ่งที่เป็นบัตรต้องรอผู้ออกใบรับรองและเบราว์เซอร์ ลายเซ็นหลังควอนตัมมีขนาดใหญ่ และเว็บยังตกลงกันไม่ได้ว่าจะส่งมันอย่างไร</p>
-  <div class="says">
-    <span class="who">NaN</span><div><div class="line en">"Lock's done. Badge is next."</div><div class="line th">"ล็อกเสร็จแล้ว ต่อไปคือบัตร"</div></div>
-    <span class="who b">Beer</span><div><div class="line en">"And the other places we use RSA? Who finds those?"</div><div class="line th">"แล้วที่อื่นที่เรายังใช้ RSA อยู่ล่ะ ใครเป็นคนหา"</div></div>
-  </div>
-  <p class="en">Findin' every place a business still leans on RSA or curves is a testin' job. Penetration testers get paid to find the weak spots before somebody else does. <a href="https://redteampartners.co.uk/partners/">Red Team Partners</a> in London is one, CREST-accredited, and sells its testing through IT firms under those firms' own brands.</p>
-  <p class="th">การหาทุกจุดที่ธุรกิจยังพึ่ง RSA หรือเส้นโค้งวงรีอยู่ เป็นงานทดสอบ นักทดสอบเจาะระบบได้รับค่าจ้างให้หาจุดอ่อนก่อนที่คนอื่นจะเจอ <a href="https://redteampartners.co.uk/partners/">Red Team Partners</a> ในลอนดอนเป็นหนึ่งในนั้น ได้รับการรับรอง CREST และขายงานทดสอบผ่านบริษัทไอทีภายใต้แบรนด์ของบริษัทเหล่านั้นเอง</p>
-</div></section>
+  <section class="pen" id="words">
+    <h2><span class="th">คำศัพท์</span><span class="en">Words</span></h2>
+    <ul class="words">
+      <li><b>RSA</b><span class="th">กุญแจแบบเก่า (ตู้จดหมาย 617 หลัก)</span><span class="en">the old lock (the 617-digit mail slot)</span></li>
+      <li><b><span class="th">ควอนตัม</span><span class="en">Quantum computer</span></b><span class="th">ไฟสนาม ผู้จัดการคนใหม่</span><span class="en">the floodlight; the new manager</span></li>
+      <li><b><span class="th">คิวบิต</span><span class="en">Qubit</span></b><span class="th">ชิ้นส่วนเล็กที่สุดของคอมพิวเตอร์ควอนตัม</span><span class="en">the smallest piece of a quantum computer</span></li>
+      <li><b><span class="th">หลังควอนตัม</span><span class="en">Post-quantum</span></b><span class="th">กุญแจที่ผู้จัดการคนใหม่เปิดไม่ได้</span><span class="en">a lock the new manager can't open</span></li>
+    </ul>
+  </section>
 
-<section id="words"><div class="wrap">
-  <h2><span class="en">Words</span><span class="th">คำศัพท์</span></h2>
-  <dl class="words">
-    <dt>prime · จำนวนเฉพาะ</dt><dd><span class="en">divides evenly only by 1 and itself</span><span class="th i">หารลงตัวด้วย 1 กับตัวเองเท่านั้น</span></dd>
-    <dt>semiprime · เซมิไพรม์</dt><dd><span class="en">two primes multiplied</span><span class="th i">ผลคูณของจำนวนเฉพาะสองตัว</span></dd>
-    <dt>factor · แยกตัวประกอบ</dt><dd><span class="en">find what was multiplied</span><span class="th i">หาว่าอะไรคูณกันมา</span></dd>
-    <dt>mod · มอดุโล</dt><dd><span class="en">the remainder; clock arithmetic</span><span class="th i">เศษจากการหาร เลขคณิตแบบนาฬิกา</span></dd>
-    <dt>period · คาบ</dt><dd><span class="en">how long before a loop repeats</span><span class="th i">ความยาวก่อนที่รอบจะวนซ้ำ</span></dd>
-    <dt>qubit · คิวบิต</dt><dd><span class="en">a quantum computer's bit</span><span class="th i">บิตของคอมพิวเตอร์ควอนตัม</span></dd>
-    <dt>elliptic curve · เส้นโค้งวงรี</dt><dd><span class="en">the curve most phones and blockchains sign with</span><span class="th i">เส้นโค้งที่โทรศัพท์และบล็อกเชนส่วนใหญ่ใช้เซ็น</span></dd>
-    <dt>lattice · แลตทิซ</dt><dd><span class="en">a grid of points; home of the new locks</span><span class="th i">ตารางจุด ที่อยู่ของกุญแจแบบใหม่</span></dd>
-    <dt>post-quantum · หลังควอนตัม</dt><dd><span class="en">built to hold against quantum computers</span><span class="th i">ออกแบบมาให้ทนคอมพิวเตอร์ควอนตัม</span></dd>
-    <dt>hybrid · ไฮบริด</dt><dd><span class="en">old lock and new lock on one door</span><span class="th i">ล็อกเก่ากับล็อกใหม่บนประตูเดียว</span></dd>
-    <dt>certificate · ใบรับรอง</dt><dd><span class="en">the ID card a site shows your browser</span><span class="th i">บัตรที่เว็บยื่นให้เบราว์เซอร์ดู</span></dd>
-  </dl>
-</div></section>
-
-<section id="sources"><div class="wrap">
-  <h2><span class="en">Sources</span><span class="th">แหล่งที่มา</span></h2>
-  <ol class="src">
-    <li>Peter W. Shor, "Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer" (1994; SIAM J. Computing 1997). <a href="https://arxiv.org/abs/quant-ph/9508027">arXiv:quant-ph/9508027</a></li>
-    <li>Craig Gidney, "How to factor 2048 bit RSA integers with less than a million noisy qubits" (May 2025). <a href="https://arxiv.org/abs/2505.15917">arXiv:2505.15917</a></li>
-    <li>RSA numbers: RSA-250, factored February 2020 by Boudot, Gaudry, Guillevic, Heninger, Thomé and Zimmermann, about 2,700 core-years. <a href="https://en.wikipedia.org/wiki/RSA_numbers">Wikipedia: RSA numbers</a></li>
-    <li>NIST, "NIST Releases First 3 Finalized Post-Quantum Encryption Standards" (13 August 2024). <a href="https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards">nist.gov</a> · <a href="https://csrc.nist.gov/pubs/fips/203/final">FIPS 203</a></li>
-    <li>NCSC, "Timelines for migration to post-quantum cryptography" (20 March 2025). <a href="https://www.ncsc.gov.uk/guidance/pqc-migration-timelines">ncsc.gov.uk</a></li>
-    <li>Michele Mosca, "Cybersecurity in an Era with Quantum Computers: Will We Be Ready?", IEEE Security &amp; Privacy 16(5), 2018. <a href="https://doi.org/10.1109/MSP.2018.3761723">doi:10.1109/MSP.2018.3761723</a></li>
-    <li>Cloudflare, "The state of the post-quantum Internet" (2024). <a href="https://blog.cloudflare.com/pq-2024/">blog.cloudflare.com</a></li>
-    <li>OpenSSH, "Post-Quantum Cryptography". <a href="https://www.openssh.com/pq.html">openssh.com/pq.html</a></li>
-    <li>secp256k1, the curve used by Bitcoin and Ethereum. <a href="https://en.bitcoin.it/wiki/Secp256k1">Bitcoin Wiki</a></li>
-    <li>ChainsAtlas, whitepaper: a multi-chain interoperability network. <a href="https://github.com/ChainsAtlas/whitepaper">github.com/ChainsAtlas/whitepaper</a> · aelf and ChainsAtlas partnership, 8 January 2024. <a href="https://www.newswire.ca/news-releases/aelf-partners-with-chainsatlas-to-pioneer-interoperability-in-blockchain-803291920.html">newswire.ca</a></li>
-    <li>Red Team Partners, partner programme (white-label penetration testing). <a href="https://redteampartners.co.uk/partners/">redteampartners.co.uk/partners</a></li>
-    <li><span class="en">Site checks: </span><span class="th">การตรวจเว็บ: </span><code>openssl s_client -groups X25519MLKEM768:X25519</code> <span class="en">and</span><span class="th i">และ</span> <code>ssh -vv git@github.com</code>, 28 September 2026.</li>
-  </ol>
-</div></section>
+  <section class="pen" id="sources">
+    <h2><span class="th">แหล่งที่มา</span><span class="en">Sources</span></h2>
+    <ol class="src">
+      <li>Peter W. Shor, quantum factoring (1994; SIAM J. Computing 1997). <a href="https://arxiv.org/abs/quant-ph/9508027">arXiv:quant-ph/9508027</a></li>
+      <li>Craig Gidney, "How to factor 2048 bit RSA integers with less than a million noisy qubits" (May 2025). <a href="https://arxiv.org/abs/2505.15917">arXiv:2505.15917</a></li>
+      <li>RSA-2048 is 617 digits. <a href="https://en.wikipedia.org/wiki/RSA_numbers">Wikipedia: RSA numbers</a></li>
+      <li>NIST, first post-quantum standards, 13 August 2024. <a href="https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards">nist.gov</a> · <a href="https://csrc.nist.gov/pubs/fips/203/final">FIPS 203 (ML-KEM)</a></li>
+      <li>Michele Mosca, "Cybersecurity in an Era with Quantum Computers: Will We Be Ready?", IEEE Security &amp; Privacy, 2018 (the freezer sum). <a href="https://doi.org/10.1109/MSP.2018.3761723">doi</a></li>
+      <li>NCSC, "Timelines for migration to post-quantum cryptography", 20 March 2025. <a href="https://www.ncsc.gov.uk/guidance/pqc-migration-timelines">ncsc.gov.uk</a></li>
+      <li>ChainsAtlas, whitepaper. <a href="https://github.com/ChainsAtlas/whitepaper">github.com/ChainsAtlas/whitepaper</a> · aelf × ChainsAtlas, 8 January 2024. <a href="https://www.newswire.ca/news-releases/aelf-partners-with-chainsatlas-to-pioneer-interoperability-in-blockchain-803291920.html">newswire.ca</a></li>
+      <li>Red Team Partners, partner programme. <a href="https://redteampartners.co.uk/partners/">redteampartners.co.uk/partners</a></li>
+      <li>Shopfront check, 28 Sep 2026: <code>openssl s_client -groups X25519MLKEM768:X25519</code>. Door lock X25519MLKEM768; licence ECDSA (GitHub Pages: RSA).</li>
+    </ol>
+  </section>
 </main>
 
-<footer class="wrap">
-  <p><span class="en">Drawn by</span><span class="th">วาดโดย</span> <a href="https://motdang.net/">motdang.net</a> · <a href="https://github.com/NaNoBotCo/all-factored">NaNoBotCo/all-factored</a> · <span class="en">text CC BY 4.0, code MIT</span><span class="th i">ข้อความ CC BY 4.0 โค้ด MIT</span></p>
-  <p><span class="en">More drawn with math:</span><span class="th">วาดด้วยคณิตศาสตร์อีก:</span> <a href="https://nanobotco.github.io/indras-net/">Indra's Net</a> · <a href="https://nanobotco.github.io/chemtrails/">Chemtrails</a> · <a href="https://nanobotco.github.io/rain-chiang-mai/">Rain in Chiang Mai</a></p>
-</footer>
+<footer><a href="https://motdang.net/">motdang.net</a> · <a href="https://github.com/NaNoBotCo/all-factored">NaNoBotCo/all-factored</a> · CC BY 4.0 / MIT</footer>
 
 <script>
 (function(){
@@ -324,252 +269,178 @@ footer{border-top:1px solid var(--rule);margin-top:48px;padding-top:18px;font-si
 var root=document.documentElement;
 var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
 function css(v){return getComputedStyle(root).getPropertyValue(v).trim();}
-function lang(){return root.getAttribute("data-lang");}
-function L(en,th){var l=lang();return l==="th"?th:l==="en"?en:en+" · "+th;}
-function LR(en,th){var l=lang();return l==="th"?th:l==="en"?en:en+"\n\n"+th;}
+function isTh(){return root.getAttribute("data-lang")==="th";}
+function L(th,en){return isTh()?th:en;}
 var redraws=[];
 function setLang(l){
-  root.setAttribute("data-lang",l); root.lang=l==="th"?"th":"en";
-  ["en","th","both"].forEach(function(k){document.getElementById("l-"+k).setAttribute("aria-pressed",String(k===l));});
-  try{localStorage.setItem("af-lang",l);}catch(e){}
+  root.setAttribute("data-lang",l);root.lang=l;
+  ["th","en"].forEach(function(k){document.getElementById("l-"+k).setAttribute("aria-pressed",String(k===l));});
+  try{localStorage.setItem("af-lang3",l);}catch(e){}
   redraws.forEach(function(f){f();});
 }
 document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.l);});});
-var saved=null; try{saved=localStorage.getItem("af-lang");}catch(e){}
-if(!saved&&/^th/i.test(navigator.language||""))saved="both";
-root.setAttribute("data-lang",saved||"both");
-
-function fit(c,h){
-  var dpr=Math.min(window.devicePixelRatio||1,2), w=c.clientWidth||600;
-  h=h||parseInt(c.getAttribute("height"),10)||300;
-  if(c.id!=="spiral")c.style.height=h+"px"; else h=c.clientHeight;
-  c.width=Math.round(w*dpr); c.height=Math.round(h*dpr);
-  var g=c.getContext("2d"); g.setTransform(dpr,0,0,dpr,0,0); return {g:g,w:w,h:h};
+var saved=null;try{saved=localStorage.getItem("af-lang3");}catch(e){}
+root.setAttribute("data-lang",saved==="en"?"en":"th");
+function fit(c){
+  if(!c.dataset.h)c.dataset.h=c.getAttribute("height");
+  var dpr=Math.min(window.devicePixelRatio||1,2),w=c.clientWidth||600,h=parseInt(c.dataset.h,10);
+  c.style.height=h+"px";c.width=Math.round(w*dpr);c.height=Math.round(h*dpr);
+  var g=c.getContext("2d");g.setTransform(dpr,0,0,dpr,0,0);return {g:g,w:w,h:h};
 }
-function gcd(a,b){while(b){var t=a%b;a=b;b=t;}return a;}
-function powmod(b,e,m){var r=1;b%=m;while(e>0){if(e&1)r=r*b%m;b=b*b%m;e>>=1;}return r;}
-function isPrime(n){if(n<2)return false;for(var i=2;i*i<=n;i++)if(n%i===0)return false;return true;}
-function factors(n){var f=[],d=2;while(d*d<=n){while(n%d===0){f.push(d);n/=d;}d++;}if(n>1)f.push(n);return f;}
 
-/* ---- hero: Ulam spiral, semiprimes split by a wave ---- */
+/* 1 paint */
 (function(){
-  var c=document.getElementById("spiral"),M=2500,pts=[],t0=null;
-  var x=0,y=0,dx=1,dy=0,seg=1,steps=0,turns=0;
-  for(var n=1;n<=M;n++){
-    var f=factors(n);
-    pts.push({n:n,x:x,y:y,k:n===1?0:f.length===1?1:f.length===2?2:3,a:f[0],b:f[1]});
-    x+=dx;y+=dy;steps++;
-    if(steps===seg){steps=0;var t=dx;dx=-dy;dy=t;turns++;if(turns%2===0)seg++;}
-  }
-  function draw(ts){
-    var s=fit(c),g=s.g,W=s.w,H=s.h,cell=Math.min(W,H*1.6)/54;
-    var brass=css("--brass"),teal=css("--teal"),faint=css("--faint");
-    if(t0===null)t0=ts||0;
-    var R=reduce?999:((ts-t0)/1000)*7%38;
-    g.clearRect(0,0,W,H);
-    pts.forEach(function(p){
-      var px=W/2+p.x*cell,py=H/2+p.y*cell;
-      if(px<-cell||px>W+cell||py<-cell||py>H+cell)return;
-      var d=Math.hypot(p.x,p.y);
-      if(p.k===1){g.fillStyle=brass;g.beginPath();g.arc(px,py,cell*.36,0,7);g.fill();}
-      else if(p.k===2){
-        var split=Math.max(0,Math.min(1,(R-d)/3));
-        g.fillStyle=teal;
-        if(split<=0){g.beginPath();g.arc(px,py,cell*.3,0,7);g.fill();}
-        else{var o=cell*.28*split,ang=(p.a*37+p.b*11)%6;
-          g.globalAlpha=1-.45*split;
-          g.beginPath();g.arc(px-Math.cos(ang)*o,py-Math.sin(ang)*o,cell*.18,0,7);g.fill();
-          g.beginPath();g.arc(px+Math.cos(ang)*o,py+Math.sin(ang)*o,cell*.18,0,7);g.fill();
-          g.globalAlpha=1;}
-      } else {g.fillStyle=faint;g.fillRect(px-cell*.08,py-cell*.08,cell*.16,cell*.16);}
-    });
-    if(!reduce)requestAnimationFrame(draw);
-  }
-  requestAnimationFrame(draw);
-})();
-
-/* ---- 1: rectangle of dots ---- */
-(function(){
-  var c=document.getElementById("rect"),sp=document.getElementById("rp"),sq=document.getElementById("rq"),read=document.getElementById("rread");
-  var P=[3,5,7,11,13,17,19,23];
-  P.forEach(function(p){sp.add(new Option(p,p));sq.add(new Option(p,p));});
-  sp.value="13"; sq.value="17";
-  var width=17,N=221,state="mul",tries=0,timer=null,fail=false;
+  var P=[{n:3,c:[208,69,61],th:"แดง",en:"red"},{n:5,c:[240,190,40],th:"เหลือง",en:"yellow"},{n:7,c:[47,111,207],th:"น้ำเงิน",en:"blue"},{n:11,c:[46,139,78],th:"เขียว",en:"green"},{n:13,c:[138,79,191],th:"ม่วง",en:"purple"},{n:17,c:[235,120,40],th:"ส้ม",en:"orange"}];
+  var box=document.getElementById("pots"),blob=document.getElementById("blob"),eq=document.getElementById("mixeq"),grid=document.getElementById("grid"),say=document.getElementById("paintsay"),pick=[1,2];
+  function rgb(c){return "rgb("+c.join(",")+")";}
+  function mix(a,b){return [0,1,2].map(function(i){return Math.round((a.c[i]+b.c[i])/2);});}
+  P.forEach(function(p,i){var b=document.createElement("button");b.type="button";b.className="pot";b.style.background=rgb(p.c);b.textContent=p.n;
+    b.addEventListener("click",function(){pick=[pick[1],i];grid.hidden=true;draw();});box.appendChild(b);});
   function draw(){
-    var s=fit(c,360),g=s.g,W=s.w,H=s.h,rows=Math.ceil(N/width),full=Math.floor(N/width),left=N%width;
-    var cell=Math.min((W-40)/width,(H-60)/rows,26),x0=(W-cell*width)/2,y0=30+(H-60-cell*rows)/2;
-    g.clearRect(0,0,W,H);
-    for(var i=0;i<N;i++){
-      var r=Math.floor(i/width),q=i%width,bad=fail&&r===full&&left>0;
-      g.fillStyle=bad?css("--red"):state==="found"?css("--brass"):css("--teal");
-      g.beginPath();g.arc(x0+q*cell+cell/2,y0+r*cell+cell/2,cell*.34,0,7);g.fill();
-    }
-    g.fillStyle=css("--muted");g.font="600 13px "+css("--mono");g.textAlign="left";
-    g.fillText(L("width","ความกว้าง")+" "+width,12,20);
+    var a=P[pick[0]],b=P[pick[1]];
+    [].forEach.call(box.children,function(el,i){el.setAttribute("aria-pressed",String(pick.indexOf(i)>=0));el.setAttribute("aria-label",L(P[i].th,P[i].en)+" "+P[i].n);});
+    blob.style.background=rgb(mix(a,b));blob.textContent=a.n*b.n;
+    eq.textContent=a.n+" × "+b.n+" = "+(a.n*b.n);
+    say.innerHTML=grid.hidden?L("ผสมง่าย ได้สีใหม่ในทันที","Mixing is easy: a new colour at once."):say.innerHTML;
   }
-  function mul(){
-    clearTimeout(timer);var p=+sp.value,q=+sq.value;N=p*q;width=Math.max(p,q);state="mul";fail=false;draw();
-    read.innerHTML=LR("<b>"+p+" × "+q+" = "+N+"</b>  one step.","<b>"+p+" × "+q+" = "+N+"</b>  ขั้นเดียว");
-  }
-  function back(){
-    clearTimeout(timer);var p=+sp.value,q=+sq.value;N=p*q;width=2;tries=0;state="try";
-    (function step(){
-      tries++;fail=N%width!==0;
-      if(!fail&&width>1){state="found";draw();
-        read.innerHTML=LR("<b>"+N+" = "+width+" × "+(N/width)+"</b>  found after "+tries+" tries.  An RSA-2048 number would take about 10^308.",
-          "<b>"+N+" = "+width+" × "+(N/width)+"</b>  เจอหลังลอง "+tries+" ครั้ง  ถ้าเป็นเลข RSA-2048 ต้องลองราว 10^308 ครั้ง");return;}
-      draw();read.innerHTML=LR("width "+width+": "+(N%width)+" left over. Try "+tries+".","ความกว้าง "+width+": เหลือเศษ "+(N%width)+"  ครั้งที่ "+tries);
-      width++;timer=setTimeout(step,reduce?60:420);
-    })();
-  }
-  document.getElementById("rmul").addEventListener("click",mul);
-  document.getElementById("rback").addEventListener("click",back);
-  sp.addEventListener("change",mul);sq.addEventListener("change",mul);
-  redraws.push(function(){draw();if(state==="mul")mul();});
-  mul();
-})();
-
-/* ---- 2: period finding ---- */
-(function(){
-  var c=document.getElementById("period"),cs=document.getElementById("spectrum"),sn=document.getElementById("pn"),sa=document.getElementById("pa"),read=document.getElementById("pread");
-  var NS=[15,21,33,35,39,51,55,77,91,143],Lp=64;
-  NS.forEach(function(n){var f=factors(n);sn.add(new Option(n+"  ("+f.join("×")+")",n));});
-  sn.value="91";
-  function fillA(){var N=+sn.value;sa.innerHTML="";for(var a=2;a<N;a++)if(gcd(a,N)===1)sa.add(new Option(a,a));}
-  function order(a,N){var r=1,v=a%N;while(v!==1){v=v*a%N;r++;}return r;}
-  function draw(){
-    var N=+sn.value,a=+sa.value,r=order(a,N),seq=[];
-    for(var x=0;x<Lp;x++)seq.push(powmod(a,x,N));
-    var s=fit(c,300),g=s.g,W=s.w,H=s.h,bw=(W-40)/Lp,base=H-34,top=34;
-    g.clearRect(0,0,W,H);
-    for(var k=0;k*r<Lp;k++){if(k%2){g.fillStyle=css("--faint");g.globalAlpha=.35;g.fillRect(20+k*r*bw,top,r*bw,base-top);g.globalAlpha=1;}}
-    seq.forEach(function(v,x){var h=(v/N)*(base-top-4);g.fillStyle=v===1?css("--brass"):css("--teal");g.fillRect(20+x*bw+1,base-h,Math.max(1,bw-2),h);});
-    g.fillStyle=css("--muted");g.font="12px "+css("--mono");g.textAlign="left";
-    g.fillText(a+"^x mod "+N,20,12);g.textAlign="center";
-    for(var x2=0;x2<Lp;x2+=8)g.fillText(x2,20+x2*bw+bw/2,H-16);
-    g.textAlign="left";g.fillStyle=css("--brass");g.fillText(L("gold = 1, the loop starts over","ทอง = 1 รอบเริ่มใหม่"),20,27);
-    // spectrum of the indicator f(x)==1
-    var t=fit(cs,150),h2=t.g,W2=t.w,H2=t.h,mag=[],mx=0;
-    for(var k2=0;k2<Lp;k2++){var re=0,im=0;for(var x3=0;x3<Lp;x3++)if(seq[x3]===1){re+=Math.cos(2*Math.PI*k2*x3/Lp);im-=Math.sin(2*Math.PI*k2*x3/Lp);}var m=Math.hypot(re,im);mag.push(m);if(m>mx)mx=m;}
-    h2.clearRect(0,0,W2,H2);var bw2=(W2-40)/Lp,b2=H2-26;
-    h2.strokeStyle=css("--rule");h2.beginPath();h2.moveTo(20,b2+.5);h2.lineTo(W2-20,b2+.5);h2.stroke();
-    mag.forEach(function(m,k3){var hh=(m/mx)*(b2-34);h2.fillStyle=css("--brass");h2.fillRect(20+k3*bw2+bw2*.2,b2-hh,bw2*.6,hh);});
-    h2.fillStyle=css("--muted");h2.font="12px "+css("--mono");h2.textAlign="left";
-    h2.fillText(L("the ear: pitches in that row","หู: ระดับเสียงในแถวนั้น"),20,12);
-    h2.fillText("L = "+Lp+", L/r ≈ "+(Lp/r).toFixed(1),20,27);
-    // arithmetic
-    var txt="";
-    if(r%2===1){txt=LR("period r = <b>"+r+"</b>, odd. This a is a dud; Shor's rolls again.","คาบ r = <b>"+r+"</b> เป็นเลขคี่ a ตัวนี้ใช้ไม่ได้ อัลกอริทึมของชอร์ก็สุ่มใหม่");}
-    else{var h=powmod(a,r/2,N);
-      if(h===N-1)txt=LR("period r = <b>"+r+"</b>, but "+a+"^"+(r/2)+" ≡ −1 mod "+N+". A dud; roll again.","คาบ r = <b>"+r+"</b> แต่ "+a+"^"+(r/2)+" ≡ −1 mod "+N+" ใช้ไม่ได้ สุ่มใหม่");
-      else{var f1=gcd(h-1,N),f2=gcd(h+1,N);
-        txt=L("period","คาบ")+" r = <b>"+r+"</b>   "+a+"^"+(r/2)+" mod "+N+" = "+h+"\ngcd("+(h-1)+", "+N+") = <b>"+f1+"</b>    gcd("+(h+1)+", "+N+") = <b>"+f2+"</b>    "+N+" = "+f1+" × "+f2;}}
-    read.innerHTML=txt;
-  }
-  function roll(){var o=sa.options;sa.selectedIndex=Math.floor(Math.random()*o.length);draw();}
-  sn.addEventListener("change",function(){fillA();roll();});
-  sa.addEventListener("change",draw);
-  document.getElementById("proll").addEventListener("click",roll);
-  redraws.push(draw);
-  fillA();sa.value="3";draw();
-})();
-
-/* ---- 3: y^2 = x^3 + 7 over F_97 ---- */
-(function(){
-  var c=document.getElementById("curve"),sk=document.getElementById("ck"),read=document.getElementById("cread"),p=97,pts=[],G=null,ord=0,play=null;
-  function inv(a){return powmod(((a%p)+p)%p,p-2,p);}
-  function add(A,B){
-    if(A===null)return B;if(B===null)return A;
-    if(A[0]===B[0]&&(A[1]+B[1])%p===0)return null;
-    var m=A[0]===B[0]&&A[1]===B[1]?(3*A[0]*A[0]%p)*inv(2*A[1])%p:((B[1]-A[1]+p)%p)*inv(B[0]-A[0])%p;
-    var x=((m*m-A[0]-B[0])%p+2*p)%p,y=((m*(A[0]-x)-A[1])%p+2*p)%p;return [x,y];
-  }
-  for(var x=0;x<p;x++)for(var y=0;y<p;y++)if((y*y-(x*x*x+7))%p===0)pts.push([x,y]);
-  pts.forEach(function(P){var Q=P,n=1;while(Q!==null&&n<500){Q=add(Q,P);n++;}if(n>ord){ord=n;G=P;}});
-  sk.max=String(Math.min(ord-1,90));
-  function mulk(k){var Q=null;for(var i=0;i<k;i++)Q=add(Q,G);return Q;}
-  function draw(){
-    var k=+sk.value,s=fit(c,420),g=s.g,W=s.w,H=s.h,pad=34,sz=Math.min(W-2*pad,H-2*pad),x0=(W-sz)/2,y0=(H-sz)/2,u=sz/(p-1);
-    function X(v){return x0+v*u;} function Y(v){return y0+sz-v*u;}
-    g.clearRect(0,0,W,H);
-    g.strokeStyle=css("--rule");g.strokeRect(x0-.5,y0-.5,sz+1,sz+1);
-    g.fillStyle=css("--faint");pts.forEach(function(P){g.beginPath();g.arc(X(P[0]),Y(P[1]),2.4,0,7);g.fill();});
-    var Q=null,prev=null;g.lineWidth=1.2;
-    for(var i=1;i<=k;i++){Q=add(Q,G);
-      if(prev&&Q){g.strokeStyle=css("--brass");g.globalAlpha=.25+.75*(i/k);g.beginPath();g.moveTo(X(prev[0]),Y(prev[1]));g.lineTo(X(Q[0]),Y(Q[1]));g.stroke();g.globalAlpha=1;}
-      if(Q){g.fillStyle=css("--brass");g.beginPath();g.arc(X(Q[0]),Y(Q[1]),3.2,0,7);g.fill();}
-      prev=Q;}
-    g.fillStyle=css("--teal");g.beginPath();g.arc(X(G[0]),Y(G[1]),6,0,7);g.fill();
-    if(Q){g.strokeStyle=css("--red");g.lineWidth=2.5;g.beginPath();g.arc(X(Q[0]),Y(Q[1]),9,0,7);g.stroke();}
-    g.fillStyle=css("--muted");g.font="12px "+css("--mono");g.textAlign="left";
-    g.fillText("y² = x³ + 7  (mod 97)",x0,y0-10);g.textAlign="right";g.fillText(pts.length+1+" "+L("points","จุด"),x0+sz,y0-10);
-    read.innerHTML=LR("P = ("+G[0]+", "+G[1]+")   k = <b>"+k+"</b>   landed at "+(Q?"<b>("+Q[0]+", "+Q[1]+")</b>":"the point at infinity")+"\nSecret: k. Public: the red ring. Here you could try all "+ord+" hops; on secp256k1 there are about 10^77.",
-      "P = ("+G[0]+", "+G[1]+")   k = <b>"+k+"</b>   ลงที่ "+(Q?"<b>("+Q[0]+", "+Q[1]+")</b>":"จุดที่อนันต์")+"\nความลับ: k  สาธารณะ: วงสีแดง  ตรงนี้ลองครบทั้ง "+ord+" ครั้งได้ แต่บน secp256k1 มีราว 10^77 ครั้ง");
-  }
-  sk.addEventListener("input",draw);
-  document.getElementById("cplay").addEventListener("click",function(){
-    clearInterval(play);var k=1,max=+sk.max;
-    play=setInterval(function(){sk.value=String(k);draw();k++;if(k>max)clearInterval(play);},reduce?20:140);
+  document.getElementById("unmix").addEventListener("click",function(){
+    grid.innerHTML="";var target=mix(P[pick[0]],P[pick[1]]),pairs=[];
+    for(var i=0;i<P.length;i++)for(var j=i;j<P.length;j++)pairs.push([i,j]);
+    pairs.sort(function(){return Math.random()-.5;});
+    pairs.forEach(function(pr){var b=document.createElement("button");b.type="button";var m=mix(P[pr[0]],P[pr[1]]);b.style.background=rgb(m);b.setAttribute("aria-label",P[pr[0]].n+" + "+P[pr[1]].n);
+      b.addEventListener("click",function(){var hit=(pr[0]===pick[0]&&pr[1]===pick[1])||(pr[0]===pick[1]&&pr[1]===pick[0]);b.textContent=P[pr[0]].n+"·"+P[pr[1]].n;b.classList.toggle("hit",hit);
+        say.innerHTML=hit?L("<b>เจอแล้ว!</b> แต่ต้องลองทีละคู่","<b>Found it!</b> But only by trying pairs one by one."):L("ไม่ใช่คู่นี้ ลองอีก","Not this pair. Try another.");});
+      grid.appendChild(b);});
+    grid.hidden=false;
+    say.innerHTML=L("ถ้าไม่รู้ว่ามาจากกระป๋องไหน ต้องผสมลองทีละคู่ แตะดูว่าคู่ไหนได้สีเดียวกับของเรา 6 กระป๋องมี 21 คู่ ในกุญแจจริงมีคู่ให้ลองมากกว่าอะตอมในเอกภพ","Without knowing the cans, you mix and compare pair by pair. Tap to find the pair that makes our colour. 6 cans make 21 pairs. A real lock has more pairs than atoms in the universe.");
   });
-  redraws.push(draw);draw();
+  redraws.push(draw);
 })();
 
-/* ---- 4: lattice, good vs bad basis ---- */
+/* 2 tables */
 (function(){
-  var c=document.getElementById("lat"),read=document.getElementById("lread");
-  var B=[[2.6,0.7],[-0.9,2.4]], U=[[5,4],[6,5]];
-  var C=[[U[0][0]*B[0][0]+U[0][1]*B[1][0],U[0][0]*B[0][1]+U[0][1]*B[1][1]],[U[1][0]*B[0][0]+U[1][1]*B[1][0],U[1][0]*B[0][1]+U[1][1]*B[1][1]]];
-  var T=null;
-  function babai(M,t){var a=M[0][0],b=M[1][0],cc=M[0][1],d=M[1][1],det=a*d-b*cc;
-    var u=(d*t[0]-b*t[1])/det,v=(-cc*t[0]+a*t[1])/det,ru=Math.round(u),rv=Math.round(v);
-    return [ru*M[0][0]+rv*M[1][0],ru*M[0][1]+rv*M[1][1]];}
+  var c=document.getElementById("rect"),say=document.getElementById("rsay"),N=221,width=1,timer=null;
   function draw(){
-    var s=fit(c,400),g=s.g,W=s.w,H=s.h,sc=Math.min(W,H)/14,ox=W/2,oy=H/2;
-    function X(v){return ox+v*sc;} function Y(v){return oy-v*sc;}
-    if(!T){ // pick a spot where the bad arrows miss
-      var best=-1;for(var tx=-3;tx<=3;tx+=.13)for(var ty=-3;ty<=3;ty+=.13){var tt=[tx,ty],a1=babai(B,tt),a2=babai(C,tt),dg=Math.hypot(tt[0]-a1[0],tt[1]-a1[1]),db=Math.hypot(tt[0]-a2[0],tt[1]-a2[1]),far=Math.hypot(tt[0],tt[1]),vis=Math.abs(a2[0])<5&&Math.abs(a2[1])<5,sc2=vis&&far>1.5&&dg<.7?db:-1;if(sc2>best){best=sc2;T=tt;}}}
-    g.clearRect(0,0,W,H);g.fillStyle=css("--faint");
-    for(var i=-12;i<=12;i++)for(var j=-12;j<=12;j++){var px=i*B[0][0]+j*B[1][0],py=i*B[0][1]+j*B[1][1];if(Math.abs(X(px)-ox)<W/2+10&&Math.abs(Y(py)-oy)<H/2+10){g.beginPath();g.arc(X(px),Y(py),3,0,7);g.fill();}}
+    var s=fit(c),g=s.g,W=s.w,H=s.h,w=width,done=w>1&&N%w===0;
+    g.clearRect(0,0,W,H);
+    if(w<2){ // a crowd, waiting
+      var cols=Math.ceil(Math.sqrt(N*W/H)),rows=Math.ceil(N/cols),d=Math.min((W-20)/cols,(H-20)/rows),x0=(W-d*cols)/2,y0=(H-d*rows)/2;
+      g.fillStyle=css("--muted");for(var i=0;i<N;i++){g.beginPath();g.arc(x0+(i%cols)*d+d/2,y0+Math.floor(i/cols)*d+d/2,d*.3,0,7);g.fill();}
+      say.innerHTML=L("แขก 221 คน รอโต๊ะอยู่ กดปุ่มเพื่อลองโต๊ะละ 2 คน","221 guests waiting. Press to try tables of 2.");return;}
+    var full=Math.floor(N/w),left=N%w,groups=full+(left?1:0),seatRows=Math.ceil(w/12),perLine=Math.min(w,12),d=22,tw,th,per,rows;
+    for(;d>=4;d-=.5){tw=perLine*d+8;th=seatRows*d+10;per=Math.floor((W-16)/(tw+6));if(per<1)continue;rows=Math.ceil(groups/per);if(rows*(th+6)<=H-16)break;}
+    var x0=(W-per*(tw+6)+6)/2,y0=(H-rows*(th+6)+6)/2;
+    for(var t=0;t<groups;t++){var gx=x0+(t%per)*(tw+6),gy=y0+Math.floor(t/per)*(th+6),n=t<full?w:left,stand=t>=full;
+      if(!stand){g.fillStyle=css("--table");g.beginPath();g.roundRect?g.roundRect(gx,gy,tw,th,5):g.rect(gx,gy,tw,th);g.fill();}
+      g.fillStyle=stand?css("--red"):done?css("--gold"):css("--teal");
+      for(var k=0;k<n;k++){g.beginPath();g.arc(gx+4+(k%perLine)*d+d/2,gy+5+Math.floor(k/perLine)*d+d/2,Math.max(1.5,d*.32),0,7);g.fill();}}
+    if(done)say.innerHTML=L("<b>ลงตัว! "+(N/w)+" โต๊ะ โต๊ะละ "+w+" คน</b> ลองมา "+(w-1)+" ขนาดกว่าจะเจอ","<b>It fits! "+(N/w)+" tables of "+w+".</b> It took "+(w-1)+" tries.");
+    else say.innerHTML=L("โต๊ะละ "+w+" คน: <b>เหลือยืน "+left+" คน</b> (สีแดง)","Tables of "+w+": <b>"+left+" left standing</b> (red).");
+  }
+  function next(){if(width>1&&N%width===0)width=1;width++;draw();}
+  document.getElementById("rnext").addEventListener("click",function(){clearTimeout(timer);next();});
+  document.getElementById("rauto").addEventListener("click",function(){clearTimeout(timer);width=1;(function step(){next();if(N%width!==0)timer=setTimeout(step,reduce?60:450);})();});
+  redraws.push(draw);
+})();
+
+/* 3 mail slot */
+(function(){
+  var letter=document.getElementById("letter"),lid=document.getElementById("lid"),box=document.getElementById("box"),say=document.getElementById("slotsay");
+  document.getElementById("drop").addEventListener("click",function(){lid.classList.remove("open");letter.classList.remove("in");void letter.getBoundingClientRect();letter.classList.add("in");
+    say.innerHTML=L("หย่อนได้เลย ใครก็หย่อนได้","In it goes. Anyone can do that.");});
+  document.getElementById("nokey").addEventListener("click",function(){box.classList.remove("shake");void box.getBoundingClientRect();box.classList.add("shake");
+    say.innerHTML=L("<b>เปิดไม่ได้</b> ต้องลองทุกขนาดโต๊ะ","<b>Won't open.</b> You'd have to try every table size.");});
+  document.getElementById("key").addEventListener("click",function(){lid.classList.add("open");
+    say.innerHTML=L("<b>เปิดแล้ว</b> เจ้าของรู้ขนาดโต๊ะ","<b>Open.</b> The owner knows the table size.");});
+  redraws.push(function(){say.innerHTML=L("ลองกดปุ่มดู","Try the buttons.");});
+})();
+
+/* 4 flashlight / floodlight */
+(function(){
+  var c=document.getElementById("lamp"),say=document.getElementById("lampsay"),flood=false,t=0,raf=null,COLS=20,N=221,STEP=17;
+  function draw(){
+    var s=fit(c),g=s.g,W=s.w,H=s.h,rows=Math.ceil(N/COLS),cell=Math.min((W-30)/COLS,(H-20)/rows),x0=(W-cell*COLS)/2,y0=(H-cell*rows)/2;
+    g.fillStyle=css("--shade");g.fillRect(0,0,W,H);
+    var spot=Math.floor(t)%N,sx=x0+(spot%COLS)*cell+cell/2,sy=y0+Math.floor(spot/COLS)*cell+cell/2;
+    for(var i=0;i<N;i++){
+      var x=x0+(i%COLS)*cell+cell/2,y=y0+Math.floor(i/COLS)*cell+cell/2,hat=i%STEP===0;
+      var lit=flood?1:Math.max(0,1-Math.hypot(x-sx,y-sy)/(cell*1.6));
+      if(lit<=0.02){g.fillStyle="rgba(255,255,255,.06)";g.beginPath();g.arc(x,y,cell*.3,0,7);g.fill();continue;}
+      g.globalAlpha=lit;g.fillStyle=hat?css("--gold"):"#8fa3b5";g.beginPath();g.arc(x,y,cell*(hat?.38:.28),0,7);g.fill();g.globalAlpha=1;
+    }
+    if(flood){g.strokeStyle=css("--gold");g.globalAlpha=.55;g.lineWidth=2;g.setLineDash([5,5]);g.beginPath();
+      for(var k=0;(k+1)*STEP<N;k++){var j=k*STEP,j2=j+STEP;if(j2%COLS>j%COLS)continue;g.moveTo(x0+(j%COLS)*cell+cell/2,y0+Math.floor(j/COLS)*cell+cell/2);g.lineTo(x0+(j2%COLS)*cell+cell/2,y0+Math.floor(j2/COLS)*cell+cell/2);}g.stroke();g.setLineDash([]);g.globalAlpha=1;}
+    else{g.strokeStyle="rgba(255,230,160,.5)";g.lineWidth=2;g.beginPath();g.arc(sx,sy,cell*1.6,0,7);g.stroke();}
+  }
+  function loop(){t+=reduce?0:.35;draw();if(!flood)raf=requestAnimationFrame(loop);}
+  function set(f){flood=f;document.getElementById("flash").classList.toggle("on",!f);document.getElementById("flood").classList.toggle("on",f);
+    cancelAnimationFrame(raf);if(f)draw();else loop();text();}
+  function text(){say.innerHTML=flood?L("<b>เห็นทั้งร้าน!</b> แขกหมวกทองเรียงเป็นลายเฉียง ซ้ำทุก ๆ <b>17</b> คน ขนาดโต๊ะโผล่ออกมาเอง","<b>The whole room!</b> The gold hats line up in slanted stripes, repeating every <b>17</b> guests. The table size shows itself.")
+    :L("ไฟฉายส่องทีละคน หาลายไม่เจอ","The flashlight sees one guest at a time. No pattern.");}
+  document.getElementById("flash").addEventListener("click",function(){set(false);});
+  document.getElementById("flood").addEventListener("click",function(){set(true);});
+  redraws.push(function(){draw();text();});
+  loop();
+})();
+
+/* 5 freezer */
+(function(){
+  var c=document.getElementById("mosca"),ix=document.getElementById("mx"),iy=document.getElementById("my"),iz=document.getElementById("mz"),say=document.getElementById("msay");
+  function draw(){
+    var x=+ix.value,y=+iy.value,z=+iz.value,s=fit(c),g=s.g,W=s.w,H=s.h,x0=18,span=46,u=(W-36)/span,now=2026;
+    document.getElementById("mxo").textContent=x;document.getElementById("myo").textContent=y;document.getElementById("mzo").textContent=z;
+    g.clearRect(0,0,W,H);g.font="600 15px "+css("--body");g.textAlign="left";
+    g.fillStyle=css("--teal");g.fillRect(x0,40,y*u,30);
+    g.fillStyle=css("--blue");g.fillRect(x0+y*u,80,x*u,30);
+    if(x+y>z){g.fillStyle=css("--red");g.globalAlpha=.28;g.fillRect(x0+z*u,34,(x+y-z)*u,82);g.globalAlpha=1;}
+    g.strokeStyle=css("--red");g.lineWidth=3;g.beginPath();g.moveTo(x0+z*u,26);g.lineTo(x0+z*u,124);g.stroke();
+    g.fillStyle=css("--red");g.fillText(L("ผู้จัดการมา ","manager comes ")+(now+z),Math.min(x0+z*u+6,W-150),20);
+    g.fillStyle="#fff";if(y*u>70)g.fillText(L("เปลี่ยนกุญแจ","changing"),x0+6,61);if(x*u>70)g.fillText(L("ความลับ","secret"),x0+y*u+6,101);
+    g.fillStyle=css("--muted");g.textAlign="center";for(var yr=0;yr<=span;yr+=(W<560?10:5)){g.fillText(now+yr,x0+yr*u,150);g.fillRect(x0+yr*u,130,1,6);}
+    say.innerHTML=x+y>z?L("<b>สายแล้ว</b> ตอนที่เปิดช่องแช่แข็งได้ ความลับยังมีค่าอยู่ (ส่วนสีแดง)","<b>Too late.</b> When the freezer opens, the secret still matters (the red part).")
+      :L("<b>ยังทัน</b> ถ้าเดาปีที่ผู้จัดการมาถูก","<b>Still in time</b>, if the guess for the manager holds.");
+  }
+  [ix,iy,iz].forEach(function(e){e.addEventListener("input",draw);});
+  redraws.push(draw);
+})();
+
+/* 6 dining room */
+(function(){
+  var c=document.getElementById("lat"),say=document.getElementById("lsay"),B=[[2.6,0.7],[-0.9,2.4]],U=[[5,4],[6,5]];
+  var C=[[U[0][0]*B[0][0]+U[0][1]*B[1][0],U[0][0]*B[0][1]+U[0][1]*B[1][1]],[U[1][0]*B[0][0]+U[1][1]*B[1][0],U[1][0]*B[0][1]+U[1][1]*B[1][1]]],T=null;
+  function babai(M,t){var a=M[0][0],b=M[1][0],cc=M[0][1],d=M[1][1],det=a*d-b*cc,u=Math.round((d*t[0]-b*t[1])/det),v=Math.round((-cc*t[0]+a*t[1])/det);return [u*M[0][0]+v*M[1][0],u*M[0][1]+v*M[1][1]];}
+  var best=-1;for(var tx=-3;tx<=3;tx+=.13)for(var ty=-3;ty<=3;ty+=.13){var tt=[tx,ty],a1=babai(B,tt),a2=babai(C,tt),dg=Math.hypot(tx-a1[0],ty-a1[1]),db=Math.hypot(tx-a2[0],ty-a2[1]),sc=Math.abs(a2[0])<5&&Math.abs(a2[1])<5&&Math.hypot(tx,ty)>1.5&&dg<.7?db:-1;if(sc>best){best=sc;T=tt;}}
+  function draw(){
+    var s=fit(c),g=s.g,W=s.w,H=s.h,sc=Math.min(W,H)/13,ox=W/2,oy=H/2;
+    function X(v){return ox+v*sc;}function Y(v){return oy-v*sc;}
+    g.clearRect(0,0,W,H);
+    for(var i=-12;i<=12;i++)for(var j=-12;j<=12;j++){var px=i*B[0][0]+j*B[1][0],py=i*B[0][1]+j*B[1][1];
+      if(Math.abs(X(px)-ox)<W/2+12&&Math.abs(Y(py)-oy)<H/2+12){g.save();g.translate(X(px),Y(py));g.rotate(-.26);g.fillStyle=css("--table");g.strokeStyle=css("--ink");g.lineWidth=1;g.fillRect(-9,-6,18,12);g.strokeRect(-9,-6,18,12);g.restore();}}
     function arrow(v,col,w){g.strokeStyle=col;g.fillStyle=col;g.lineWidth=w;g.beginPath();g.moveTo(ox,oy);g.lineTo(X(v[0]),Y(v[1]));g.stroke();
-      var a=Math.atan2(-(v[1]),v[0]);g.beginPath();g.moveTo(X(v[0]),Y(v[1]));g.lineTo(X(v[0])-9*Math.cos(a-.4),Y(v[1])-9*Math.sin(a-.4));g.lineTo(X(v[0])-9*Math.cos(a+.4),Y(v[1])-9*Math.sin(a+.4));g.fill();}
-    arrow(C[0],css("--red"),1.6);arrow(C[1],css("--red"),1.6);arrow(B[0],css("--green"),2.4);arrow(B[1],css("--green"),2.4);
+      var a=Math.atan2(-v[1],v[0]);g.beginPath();g.moveTo(X(v[0]),Y(v[1]));g.lineTo(X(v[0])-11*Math.cos(a-.4),Y(v[1])-11*Math.sin(a-.4));g.lineTo(X(v[0])-11*Math.cos(a+.4),Y(v[1])-11*Math.sin(a+.4));g.fill();}
+    arrow(C[0],css("--red"),2);arrow(C[1],css("--red"),2);arrow(B[0],css("--green"),3.5);arrow(B[1],css("--green"),3.5);
     var gd=babai(B,T),bd=babai(C,T);
-    g.setLineDash([4,4]);g.lineWidth=1;g.strokeStyle=css("--green");g.beginPath();g.moveTo(X(T[0]),Y(T[1]));g.lineTo(X(gd[0]),Y(gd[1]));g.stroke();
+    g.setLineDash([6,5]);g.lineWidth=2;g.strokeStyle=css("--green");g.beginPath();g.moveTo(X(T[0]),Y(T[1]));g.lineTo(X(gd[0]),Y(gd[1]));g.stroke();
     g.strokeStyle=css("--red");g.beginPath();g.moveTo(X(T[0]),Y(T[1]));g.lineTo(X(bd[0]),Y(bd[1]));g.stroke();g.setLineDash([]);
-    g.lineWidth=2.5;g.strokeStyle=css("--green");g.beginPath();g.arc(X(gd[0]),Y(gd[1]),9,0,7);g.stroke();
-    g.strokeStyle=css("--red");g.beginPath();g.arc(X(bd[0]),Y(bd[1]),13,0,7);g.stroke();
-    g.fillStyle=css("--ink");g.beginPath();g.moveTo(X(T[0]),Y(T[1])-7);g.lineTo(X(T[0])+6,Y(T[1])+5);g.lineTo(X(T[0])-6,Y(T[1])+5);g.fill();
+    g.lineWidth=4;g.strokeStyle=css("--green");g.beginPath();g.arc(X(gd[0]),Y(gd[1]),15,0,7);g.stroke();
+    g.strokeStyle=css("--red");g.beginPath();g.arc(X(bd[0]),Y(bd[1]),19,0,7);g.stroke();
+    g.fillStyle=css("--ink");g.beginPath();g.arc(X(T[0]),Y(T[1]),8,0,7);g.fill();
     var dg=Math.hypot(T[0]-gd[0],T[1]-gd[1]),db=Math.hypot(T[0]-bd[0],T[1]-bd[1]);
-    read.innerHTML=LR("target ▲   good arrows land <b>"+dg.toFixed(2)+"</b> away   bad arrows land <b>"+db.toFixed(2)+"</b> away"+(db-dg>.01?"   same grid, wrong point":"   both found it this time; tap somewhere else"),
-      "เป้า ▲   ลูกศรที่ดีลงห่าง <b>"+dg.toFixed(2)+"</b>   ลูกศรที่แย่ลงห่าง <b>"+db.toFixed(2)+"</b>"+(db-dg>.01?"   ตารางเดียวกัน แต่ผิดจุด":"   ครั้งนี้เจอทั้งคู่ ลองแตะที่อื่น"));
+    say.innerHTML=db-dg>.01?L("● แขก · <b>วงเขียว</b> โต๊ะที่ใกล้ที่สุด · <b>วงแดง</b> แผนผังแย่พาไปผิดโต๊ะ","● guest · <b>green ring</b>: the nearest table · <b>red ring</b>: the bad map's wrong table")
+      :L("ครั้งนี้เจอโต๊ะเดียวกัน ลองแตะที่อื่น","Same table this time. Tap somewhere else.");
     c._inv=function(ex,ey){return [(ex-ox)/sc,(oy-ey)/sc];};
   }
   c.addEventListener("pointerdown",function(e){var r=c.getBoundingClientRect();T=c._inv(e.clientX-r.left,e.clientY-r.top);draw();});
-  redraws.push(draw);draw();
+  redraws.push(draw);
 })();
 
-/* ---- 5: Mosca ---- */
+/* 7 shopfront */
 (function(){
-  var c=document.getElementById("mosca"),ix=document.getElementById("mx"),iy=document.getElementById("my"),iz=document.getElementById("mz"),read=document.getElementById("mread");
-  function draw(){
-    var x=+ix.value,y=+iy.value,z=+iz.value,s=fit(c,200),g=s.g,W=s.w,H=s.h,x0=24,span=46,u=(W-48)/span,now=2026;
-    document.getElementById("mxo").textContent=x;document.getElementById("myo").textContent=y;document.getElementById("mzo").textContent=z;
-    g.clearRect(0,0,W,H);
-    g.fillStyle=css("--teal");g.fillRect(x0,44,y*u,26);
-    g.fillStyle=css("--brass");g.fillRect(x0+y*u,84,x*u,26);
-    if(x+y>z){g.fillStyle=css("--red");g.globalAlpha=.3;g.fillRect(x0+z*u,40,(x+y-z)*u,74);g.globalAlpha=1;}
-    g.strokeStyle=css("--red");g.lineWidth=2;g.beginPath();g.moveTo(x0+z*u,28);g.lineTo(x0+z*u,128);g.stroke();
-    g.fillStyle=css("--ink");g.font="12px "+css("--mono");g.textAlign="left";
-    g.fillText(L("y: switching","y: เปลี่ยนระบบ"),x0+4,62);
-    g.fillText(L("x: must stay secret","x: ต้องเป็นความลับ"),x0+y*u+4,102);
-    g.fillStyle=css("--red");g.fillText(L("z: machine arrives","z: เครื่องมาถึง")+" "+(now+z),Math.min(x0+z*u+4,W-170),24);
-    g.fillStyle=css("--muted");g.textAlign="center";
-    for(var yr=0;yr<=span;yr+=(W<560?10:5)){g.fillText(now+yr,x0+yr*u,150);g.fillRect(x0+yr*u,134,1,5);}
-    read.innerHTML=x+y>z?LR("x + y = <b>"+(x+y)+"</b> &gt; z = "+z+"   already late: secrets sent in "+now+" are still worth something when they can be opened.","x + y = <b>"+(x+y)+"</b> &gt; z = "+z+"   สายไปแล้ว: ความลับที่ส่งปี "+now+" ยังมีค่าอยู่ตอนที่มันถูกแกะได้")
-      :LR("x + y = <b>"+(x+y)+"</b> ≤ z = "+z+"   time to spare, if your guess for z holds.","x + y = <b>"+(x+y)+"</b> ≤ z = "+z+"   ยังมีเวลา ถ้าที่เดา z ไว้ถูก");
-  }
-  [ix,iy,iz].forEach(function(e){e.addEventListener("input",draw);});
-  redraws.push(draw);draw();
+  var say=document.getElementById("shopsay");
+  function door(){say.innerHTML=L("<b>กุญแจประตู: แบบใหม่แล้ว</b> ใครแอบถ่ายสำเนาไว้วันนี้ ก็เปิดในวันหน้าไม่ได้","<b>Door lock: already the new kind.</b> A copy taken today can't be opened later.");}
+  function wall(){say.innerHTML=L("<b>ใบอนุญาต: ยังแบบเก่า</b> ต้องรอบริษัทที่ออกใบกับเบราว์เซอร์เปลี่ยนก่อน เรายังทำเองไม่ได้","<b>Licence: still the old kind.</b> It waits on the companies that issue them and on the browsers. We can't switch it ourselves yet.");}
+  ["hotdoor","hotwall"].forEach(function(id,i){var el=document.getElementById(id),f=i?wall:door;el.addEventListener("click",f);el.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();f();}});});
+  redraws.push(function(){say.innerHTML=L("แตะที่ประตู หรือใบบนผนัง","Tap the door, or the licence on the wall.");});
 })();
 
 setLang(root.getAttribute("data-lang"));

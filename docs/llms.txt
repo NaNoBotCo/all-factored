@@ -1,13 +1,14 @@
 # All Factored · แยกหมดแล้ว
 
-> Post-quantum cryptography, drawn with math, in English and Thai. One page, six live drawings.
+> Why the locks on the internet are changing, as touchable pictures. Thai first, English toggle.
 
-- Multiply, then go back: dots snap into a p×q rectangle; undoing it means trying widths.
-- The rhythm trick: a^x mod N bars and their spectrum; the period r gives gcd(a^(r/2)±1, N).
-- Curves fall too: hops on y² = x³ + 7 over the integers mod 97 (secp256k1's equation).
-- The new locks: a 2-D lattice, good basis vs bad basis, Babai rounding.
-- Harvest now, open later: Mosca's x + y > z.
-- Our sites, checked 28 Sep 2026: key exchange X25519MLKEM768 on motdang.net, hongdam.net, wichaa.net, nanobotco.github.io; certificates ECDSA/RSA.
+- Mixing paint: two cans mix at once; unmixing means trying pairs.
+- Seat the guests: 221 guests, equal tables; try each table size until one fits (13 × 17).
+- The mail slot: anyone drops a letter in; only the key holder opens the box (public and private keys).
+- Flashlight and floodlight: one guest at a time versus the whole room, where every 17th guest lines up in stripes (how a quantum computer finds the pattern).
+- The freezer: copy now, open later; Mosca's x + y > z.
+- The new lock: a dining room with a good map and a bad map (lattices, ML-KEM).
+- Our shopfront, checked 28 Sep 2026: door lock X25519MLKEM768 on motdang.net, hongdam.net, wichaa.net, nanobotco.github.io; licence (certificate) still ECDSA/RSA.
 
-Cites: Shor 1994; Gidney 2025; NIST FIPS 203/204/205; NCSC PQC timelines; Mosca 2018; ChainsAtlas whitepaper; Red Team Partners partner programme.
+Cites: Shor 1994; Gidney 2025; NIST FIPS 203; NCSC PQC timelines; Mosca 2018; ChainsAtlas whitepaper; Red Team Partners partner programme.
 Text CC BY 4.0, code MIT. https://github.com/NaNoBotCo/all-factored
